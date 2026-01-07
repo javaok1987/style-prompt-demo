@@ -9,7 +9,7 @@ const stylesData = [
     ],
     scenarios: ["商業提案", "投資報告", "策略分析", "董事會簡報"],
     prompt:
-      "Create a McKinsey-style infographic about '5 Steps of Digital Transformation'.\nStyle specifications:\n- Clean white background\n- Sophisticated blue-and-gray color palette\n- Ample whitespace\n- Strict grid alignment\n- Orthogonal arrows (90-degree angles only)\n- Bold sans-serif typography\n- Professional business aesthetic.\nLayout: Horizontal flow chart.\nAspect ratio: 9:16 vertical",
+      "Create a McKinsey-style infographic about '5 Steps of Digital Transformation'.\nStyle specifications:\n- Clean white background\n- Sophisticated blue-and-gray color palette\n- Ample whitespace\n- Strict grid alignment\n- Orthogonal arrows (90-degree angles only)\n- Bold sans-serif typography\n- Professional business aesthetic.\nLayout: Horizontal flow chart.",
   },
   {
     name: "Style 02 💼 企業風 Corporate Memphis",
@@ -21,7 +21,7 @@ const stylesData = [
     ],
     scenarios: ["科技產品介紹", "SaaS 服務", "團隊協作", "新創公司"],
     prompt:
-      'Create a Corporate Memphis flat design infographic about "Remote Team Collaboration Tips".\nStyle specifications:\n- Abstract human figures with tiny heads and long limbs\n- Non-realistic skin tones (blue, purple, coral)\n- Geometric shapes and solid color blocks\n- No outlines, flat design\n- Joyful and modern mood.\nAspect ratio: 9:16 vertical',
+      'Create a Corporate Memphis flat design infographic about "Remote Team Collaboration Tips".\nStyle specifications:\n- Abstract human figures with tiny heads and long limbs\n- Non-realistic skin tones (blue, purple, coral)\n- Geometric shapes and solid color blocks\n- No outlines, flat design\n- Joyful and modern mood.',
   },
   {
     name: "Style 03 💼 極簡風 Minimalist",
@@ -33,7 +33,7 @@ const stylesData = [
     ],
     scenarios: ["高端品牌", "藝術展覽", "設計提案", "精品行銷"],
     prompt:
-      "Create a Minimalist infographic about '3 Principles of Good Design'.\nStyle specifications:\n- Generous whitespace as main element\n- Thin line icons\n- Monochromatic or two-color palette\n- Modern sans-serif typography as design element\n- Maximum simplicity and sophistication.\nAspect ratio: 9:16 vertical",
+      "Create a Minimalist infographic about '3 Principles of Good Design'.\nStyle specifications:\n- Generous whitespace as main element\n- Thin line icons\n- Monochromatic or two-color palette\n- Modern sans-serif typography as design element\n- Maximum simplicity and sophistication.",
   },
   {
     name: "Style 04 💼 商業簡報風 Professional Slide",
@@ -45,7 +45,7 @@ const stylesData = [
     ],
     scenarios: ["公司會議", "部門報告", "業績展示", "季度回顧"],
     prompt:
-      'Create a Professional business slide infographic about "Q3 Performance Summary".\nStyle specifications:\n- Clean corporate layout\n- Data visualization with bar/pie charts\n- Professional color scheme (navy, gray, accent blue)\n- Clear information\n- Clear information hierarchy\n- Executive summary format.\nAspect ratio: 9:16 vertical',
+      'Create a Professional business slide infographic about "Q3 Performance Summary".\nStyle specifications:\n- Clean corporate layout\n- Data visualization with bar/pie charts\n- Professional color scheme (navy, gray, accent blue)\n- Clear information\n- Clear information hierarchy\n- Executive summary format.',
   },
   {
     name: "Style 05 💼 顧問圖表風 Consulting Framework",
@@ -57,7 +57,7 @@ const stylesData = [
     ],
     scenarios: ["策略規劃", "競爭分析", "決策框架", "顧問提案"],
     prompt:
-      "Create a Consulting framework infographic about 'Competitive Strategy Matrix'.\nStyle specifications:\n- 2x2 matrix layout\n- BCG/McKinsey consulting style\n- Strategic diagram with quadrants\n- Clean labels and axis titles\n- Professional business aesthetic.\nAspect ratio: 9:16 vertical",
+      "Create a Consulting framework infographic about 'Competitive Strategy Matrix'.\nStyle specifications:\n- 2x2 matrix layout\n- BCG/McKinsey consulting style\n- Strategic diagram with quadrants\n- Clean labels and axis titles\n- Professional business aesthetic.",
   },
   {
     name: "Style 06 🎨 水彩風 Watercolor",
@@ -69,7 +69,7 @@ const stylesData = [
     ],
     scenarios: ["自然生態", "兒童教育", "療癒主題", "繪本風格"],
     prompt:
-      "Create a Storybook Watercolor infographic about 'Life Cycle of a Butterfly'.\nStyle specifications:\n- Soft painterly edges\n- Gentle ink wash outlines\n- Pastel color palette\n- Cold-press watercolor paper texture visible\n- Warm and healing atmosphere\n- Nature-inspired organic shapes\nAspect ratio: 9:16 vertical",
+      "Create a Storybook Watercolor infographic about 'Life Cycle of a Butterfly'.\nStyle specifications:\n- Soft painterly edges\n- Gentle ink wash outlines\n- Pastel color palette\n- Cold-press watercolor paper texture visible\n- Warm and healing atmosphere\n- Nature-inspired organic shapes",
   },
   {
     name: "Style 07 🎨 等距風 Isometric 3D",
@@ -81,7 +81,7 @@ const stylesData = [
     ],
     scenarios: ["流程說明", "技術架構", "遊戲化內容", "系統圖解"],
     prompt:
-      "Create an Isometric 3D infographic about ‘How Cloud Computing Works’.\nStyle specifications:\n- 30-degree isometric perspective\n- Stacked cubic/geometric shapes\n- Clear shadow layers for depth\n- Video game map aesthetic\n- Tech-forward modern colors\nAspect ratio: 9:16 vertical",
+      "Create an Isometric 3D infographic about ‘How Cloud Computing Works’.\nStyle specifications:\n- 30-degree isometric perspective\n- Stacked cubic/geometric shapes\n- Clear shadow layers for depth\n- Video game map aesthetic\n- Tech-forward modern colors",
   },
   {
     name: "Style 08 🎨 扁平風 Flat Vector",
@@ -93,7 +93,7 @@ const stylesData = [
     ],
     scenarios: ["教科書", "說明手冊", "教學素材", "印刷品"],
     prompt:
-      'Create a Flat Vector illustration infographic about "How Solar Energy Works".\nStyle specifications:\n- Pure solid color fills without gradients\n- Simplified geometric shapes\n- Clear bold outlines\n- High contrast colors\n- Educational textbook style\nAspect ratio: 9:16 vertical',
+      'Create a Flat Vector illustration infographic about "How Solar Energy Works".\nStyle specifications:\n- Pure solid color fills without gradients\n- Simplified geometric shapes\n- Clear bold outlines\n- High contrast colors\n- Educational textbook style',
   },
   {
     name: "Style 09 🎨 可愛風 Kawaii",
@@ -105,7 +105,7 @@ const stylesData = [
     ],
     scenarios: ["兒童內容", "健康提醒", "可愛品牌", "情感教育"],
     prompt:
-      'Create a Kawaii cute vector infographic about "Daily Hydration Reminder".\nStyle specifications:\n- Rounded edges and shapes\n- Pastel color palette\n- Cute expressive faces on objects\n- Simplified adorable characters\n- Warm and friendly mood\nAspect ratio: 9:16 vertical',
+      'Create a Kawaii cute vector infographic about "Daily Hydration Reminder".\nStyle specifications:\n- Rounded edges and shapes\n- Pastel color palette\n- Cute expressive faces on objects\n- Simplified adorable characters\n- Warm and friendly mood',
   },
   {
     name: "Style 10 🎨 手繪風 Hand-drawn Sketch",
@@ -117,7 +117,7 @@ const stylesData = [
     ],
     scenarios: ["腦力激盪", "概念說明", "創意發想", "工作坊"],
     prompt:
-      'Create a Hand-drawn sketch infographic about "Brainstorming Techniques".\nStyle specifications:\n- Pencil line texture\n- Organic irregular shapes\n- Rough sketch edges\n- Notebook paper style\n- Casual and approachable mood\nAspect ratio: 9:16 vertical',
+      'Create a Hand-drawn sketch infographic about "Brainstorming Techniques".\nStyle specifications:\n- Pencil line texture\n- Organic irregular shapes\n- Rough sketch edges\n- Notebook paper style\n- Casual and approachable mood',
   },
   {
     name: "Style 11 🎨 剪紙風 Paper Cutout",
@@ -129,7 +129,7 @@ const stylesData = [
     ],
     scenarios: ["手作教學", "故事繪本", "創意專案", "兒童活動"],
     prompt:
-      "Create a Paper Cutout style infographic about 'Underwater Ocean Adventure'.\nStyle specifications:\n- Layered construction paper effect\n- Visible scissor-cut edges\n- Drop shadows between layers\n- Collage aesthetic\n- Colorful and playful.\nAspect ratio: 9:16 vertical",
+      "Create a Paper Cutout style infographic about 'Underwater Ocean Adventure'.\nStyle specifications:\n- Layered construction paper effect\n- Visible scissor-cut edges\n- Drop shadows between layers\n- Collage aesthetic\n- Colorful and playful.",
   },
   {
     name: "Style 12 🎮 動漫風 Anime",
@@ -141,7 +141,7 @@ const stylesData = [
     ],
     scenarios: ["青少年教育", "遊戲介紹", "活動宣傳", "社群貼文"],
     prompt:
-      "Create an Anime style infographic about '5 Tips for Learning a New Language'.\nStyle specifications:\n- Japanese anime art style\n- Expressive characters with large eyes\n- Dynamic action lines\n- Bold black outlines\n- Vibrant contrasting colors\n- Manga panel composition elements.\nAspect ratio: 9:16 vertical",
+      "Create an Anime style infographic about '5 Tips for Learning a New Language'.\nStyle specifications:\n- Japanese anime art style\n- Expressive characters with large eyes\n- Dynamic action lines\n- Bold black outlines\n- Vibrant contrasting colors\n- Manga panel composition elements.",
   },
   {
     name: "Style 13 🎮 漫畫風 Comic Book",
@@ -153,7 +153,7 @@ const stylesData = [
     ],
     scenarios: ["歷史時間軸", "故事摘要", "事件說明", "品牌故事"],
     prompt:
-      "Create a Comic Book graphic novel style infographic about 'History of the Internet Timeline'.\nStyle specifications:\n- Bold thick black outlines\n- Flat colors with halftone dot texture\n- Dynamic panel framing\n- Speech bubbles for key points\n- High contrast dramatic composition.\nAspect ratio: 9:16 vertical",
+      "Create a Comic Book graphic novel style infographic about 'History of the Internet Timeline'.\nStyle specifications:\n- Bold thick black outlines\n- Flat colors with halftone dot texture\n- Dynamic panel framing\n- Speech bubbles for key points\n- High contrast dramatic composition.",
   },
   {
     name: "Style 14 🎮 像素風 Pixel Art",
@@ -165,7 +165,7 @@ const stylesData = [
     ],
     scenarios: ["遊戲產業", "復古主題", "科技回顧", "社群吸睛"],
     prompt:
-      "Create a 16-bit Pixel Art infographic about 'Game Development Process'.\nStyle specifications:\n- Limited retro color palette\n- Dithering for shadows and gradients\n- Distinct grid-based square pixel structure\n- 1990s console game screenshot aesthetic\n- Clear readable pixel typography.\nAspect ratio: 9:16 vertical",
+      "Create a 16-bit Pixel Art infographic about 'Game Development Process'.\nStyle specifications:\n- Limited retro color palette\n- Dithering for shadows and gradients\n- Distinct grid-based square pixel structure\n- 1990s console game screenshot aesthetic\n- Clear readable pixel typography.",
   },
   {
     name: "Style 15 🎮 黏土風 Claymation",
@@ -177,7 +177,7 @@ const stylesData = [
     ],
     scenarios: ["兒童內容", "親切教學", "可愛品牌", "社群病毒傳播"],
     prompt:
-      "Create a Claymation plasticine style infographic about 'Healthy Breakfast Guide'.\nStyle specifications:\n- 3D clay texture\n- Visible fingerprints on surface\n- Soft plasticine lighting\n- Stop-motion animation aesthetic\n- Warm and tactile feel.\nAspect ratio: 9:16 vertical",
+      "Create a Claymation plasticine style infographic about 'Healthy Breakfast Guide'.\nStyle specifications:\n- 3D clay texture\n- Visible fingerprints on surface\n- Soft plasticine lighting\n- Stop-motion animation aesthetic\n- Warm and tactile feel.",
   },
   {
     name: "Style 16 🎮 摺紙風 Origami",
@@ -189,7 +189,7 @@ const stylesData = [
     ],
     scenarios: ["數學幾何", "結構概念", "創意設計", "日本文化"],
     prompt:
-      "Create an Origami paper folding style infographic about 'Introduction to Geometry'.\nStyle specifications:\n- Paper folding geometric shapes\n- Sharp clean edges\n- Structural concept visualization\n- Minimal color palette\n- Mathematical elegance.\nAspect ratio: 9:16 vertical",
+      "Create an Origami paper folding style infographic about 'Introduction to Geometry'.\nStyle specifications:\n- Paper folding geometric shapes\n- Sharp clean edges\n- Structural concept visualization\n- Minimal color palette\n- Mathematical elegance.",
   },
   {
     name: "Style 17 🎮 塗鴉風 Graffiti",
@@ -201,7 +201,7 @@ const stylesData = [
     ],
     scenarios: ["年輕族群", "潮流品牌", "音樂活動", "街頭文化"],
     prompt:
-      "Create a Graffiti street art style infographic about 'Beginner's Guide to Street Dance'.\nStyle specifications:\n- Spray paint texture\n- Bold contrasting colors\n- Urban street art aesthetic\n- Energetic and rebellious mood\n- Dynamic typography.\nAspect ratio: 9:16 vertical",
+      "Create a Graffiti street art style infographic about 'Beginner's Guide to Street Dance'.\nStyle specifications:\n- Spray paint texture\n- Bold contrasting colors\n- Urban street art aesthetic\n- Energetic and rebellious mood\n- Dynamic typography.",
   },
   {
     name: "Style 18 📜 復古海報風 Vintage Poster / WPA",
@@ -213,7 +213,7 @@ const stylesData = [
     ],
     scenarios: ["旅遊推廣", "環保議題", "歷史主題", "文青品牌"],
     prompt:
-      "Create a WPA National Park vintage poster style infographic about 'Benefits of Outdoor Activities'.\nStyle specifications:\n- Flat vector illustration\n- Limited color palette (burnt orange, sage green, navy)\n- Screen print texture\n- Bold vintage typography\n- Hazy atmospheric perspective\n- Heroic and timeless mood.\nAspect ratio: 9:16 vertical",
+      "Create a WPA National Park vintage poster style infographic about 'Benefits of Outdoor Activities'.\nStyle specifications:\n- Flat vector illustration\n- Limited color palette (burnt orange, sage green, navy)\n- Screen print texture\n- Bold vintage typography\n- Hazy atmospheric perspective\n- Heroic and timeless mood.",
   },
   {
     name: "Style 19 📜 黑板風 Chalkboard",
@@ -225,7 +225,7 @@ const stylesData = [
     ],
     scenarios: ["教育訓練", "食譜分享", "咖啡廳菜單", "手作教學"],
     prompt:
-      "Create a Chalkboard art infographic about 'How to Brew Perfect Coffee'.\nStyle specifications:\n- Deep green or black chalkboard background\n- White chalk line drawings\n- Hand-drawn typography style\n- Classic school classroom feel\n- Slight chalk smudge texture.\nAspect ratio: 9:16 vertical",
+      "Create a Chalkboard art infographic about 'How to Brew Perfect Coffee'.\nStyle specifications:\n- Deep green or black chalkboard background\n- White chalk line drawings\n- Hand-drawn typography style\n- Classic school classroom feel\n- Slight chalk smudge texture.",
   },
   {
     name: "Style 20 📜 底片風 Analog Film Grain",
@@ -237,7 +237,7 @@ const stylesData = [
     ],
     scenarios: ["懷舊主題", "攝影教學", "生活紀錄", "文青風格"],
     prompt:
-      "Create an Analog Film photography style infographic about 'Travel Photography Tips'.\nStyle specifications:\n- 35mm film grain texture\n- Slight light leak effect\n- Vintage date stamp in corner\n- Muted Kodak Portra color palette\n- Nostalgic and authentic mood\n- Soft focus aesthetic.\nAspect ratio: 9:16 vertical",
+      "Create an Analog Film photography style infographic about 'Travel Photography Tips'.\nStyle specifications:\n- 35mm film grain texture\n- Slight light leak effect\n- Vintage date stamp in corner\n- Muted Kodak Portra color palette\n- Nostalgic and authentic mood\n- Soft focus aesthetic.",
   },
   {
     name: "Style 21 📜 普普風 Pop Art",
@@ -249,7 +249,7 @@ const stylesData = [
     ],
     scenarios: ["時尚主題", "藝術展覽", "吸睛海報", "潮流品牌"],
     prompt:
-      "Create a Pop Art infographic about 'Evolution of Pop Culture'.\nStyle specifications:\n- Warhol/Lichtenstein style\n- High contrast bold colors\n- Halftone dot patterns\n- Energetic and attention-grabbing\n- Comic-inspired aesthetic.\nAspect ratio: 9:16 vertical",
+      "Create a Pop Art infographic about 'Evolution of Pop Culture'.\nStyle specifications:\n- Warhol/Lichtenstein style\n- High contrast bold colors\n- Halftone dot patterns\n- Energetic and attention-grabbing\n- Comic-inspired aesthetic.",
   },
   {
     name: "Style 22 📜 達文西風 Da Vinci Notebook",
@@ -261,7 +261,7 @@ const stylesData = [
     ],
     scenarios: ["科學發明", "人體解剖", "歷史主題", "藝術教育"],
     prompt:
-      'Create a Da Vinci notebook Renaissance style infographic about "Human Muscle Anatomy".\nStyle specifications:\n- Renaissance sketch style\n- Sepia tones on parchment texture\n- Anatomical drawing precision\n- Handwritten notes aesthetic\n- Scientific illustration feel\nAspect ratio: 9:16 vertical',
+      'Create a Da Vinci notebook Renaissance style infographic about "Human Muscle Anatomy".\nStyle specifications:\n- Renaissance sketch style\n- Sepia tones on parchment texture\n- Anatomical drawing precision\n- Handwritten notes aesthetic\n- Scientific illustration feel',
   },
   {
     name: "Style 23 🔬 藍圖風 Blueprint",
@@ -273,7 +273,7 @@ const stylesData = [
     ],
     scenarios: ["產品結構", "技術說明", "工程項目", "建築設計"],
     prompt:
-      'Create a Technical Blueprint style infographic about "Smartphone Internal Structure".\nStyle specifications:\n- Blue background with white line drawings\n- Architectural grid pattern\n- Dimension annotations and callouts\n- Engineering precision aesthetic\n- Technical drawing style\nAspect ratio: 9:16 vertical',
+      'Create a Technical Blueprint style infographic about "Smartphone Internal Structure".\nStyle specifications:\n- Blue background with white line drawings\n- Architectural grid pattern\n- Dimension annotations and callouts\n- Engineering precision aesthetic\n- Technical drawing style',
   },
   {
     name: "Style 24 🔬 剖面圖風 Cross-section",
@@ -285,7 +285,7 @@ const stylesData = [
     ],
     scenarios: ["機械原理", "建築結構", "產品內部", "科學教育"],
     prompt:
-      'Create a Cross-section diagram infographic about "How a V6 Engine Works".\n\nStyle specifications:\n- Cutaway view showing internal structure\n- Labeled parts with pointer lines\n- Clean white background\n- Technical illustration style\n- Accurate mechanical positioning\n\nAspect ratio: 9:16 vertical',
+      'Create a Cross-section diagram infographic about "How a V6 Engine Works".\n\nStyle specifications:\n- Cutaway view showing internal structure\n- Labeled parts with pointer lines\n- Clean white background\n- Technical illustration style\n- Accurate mechanical positioning\n',
   },
   {
     name: "Style 25 🔬 線框圖風 Wireframe UI",
@@ -297,7 +297,7 @@ const stylesData = [
     ],
     scenarios: ["UX 設計", "流程邏輯", "數位產品", "程式開發"],
     prompt:
-      "Create a UI Wireframe style infographic about 'App Design Process'.\n\nStyle specifications:\n- App blueprint wireframe aesthetic\n- Gray-scale color scheme\n- Logic flow visualization\n- Web/mobile design style\n- Clean structured layout\n\nAspect ratio: 9:16 vertical",
+      "Create a UI Wireframe style infographic about 'App Design Process'.\n\nStyle specifications:\n- App blueprint wireframe aesthetic\n- Gray-scale color scheme\n- Logic flow visualization\n- Web/mobile design style\n- Clean structured layout\n",
   },
   {
     name: "Style 26 🔬 地鐵圖風 Subway Map",
@@ -309,7 +309,7 @@ const stylesData = [
     ],
     scenarios: ["時間軸", "學習路徑", "概念連結", "旅程地圖"],
     prompt:
-      "Create a Subway transit map style infographic about 'Career Development Roadmap'.\n\nStyle specifications:\n- Transit diagram aesthetic\n- Connected nodes as stations\n- Color-coded different lines/paths\n- Journey visualization\n- Clean geometric routes.\n\nAspect ratio: 9:16 vertical",
+      "Create a Subway transit map style infographic about 'Career Development Roadmap'.\n\nStyle specifications:\n- Transit diagram aesthetic\n- Connected nodes as stations\n- Color-coded different lines/paths\n- Journey visualization\n- Clean geometric routes.\n",
   },
   {
     name: "Style 27 ✨ 賽博龐克風 Cyberpunk / Neon",
@@ -321,7 +321,7 @@ const stylesData = [
     ],
     scenarios: ["科技趨勢", "未來主題", "電競遊戲", "吸睛社群"],
     prompt:
-      "Create a Cyberpunk neon style infographic about 'AI Artificial Intelligence Trends'.\n\nStyle specifications:\n- Dark background\n- Bright neon blue and pink accents\n- Glowing light effects\n- Futuristic cyber-noir aesthetic\n- Tech and sci-fi mood.\n\nAspect ratio: 9:16 vertical",
+      "Create a Cyberpunk neon style infographic about 'AI Artificial Intelligence Trends'.\n\nStyle specifications:\n- Dark background\n- Bright neon blue and pink accents\n- Glowing light effects\n- Futuristic cyber-noir aesthetic\n- Tech and sci-fi mood.\n",
   },
   {
     name: "Style 28 ✨ 蒸汽龐克風 Steampunk",
@@ -333,7 +333,7 @@ const stylesData = [
     ],
     scenarios: ["創意設計", "歷史科技", "獨特主題", "品牌差異化"],
     prompt:
-      "Create a Steampunk style infographic about 'Inventions of the Industrial Revolution'.\n\nStyle specifications:\n- Mechanical gears and cogs\n- Brass and copper metallic textures\n- Victorian era aesthetic\n- Retro-futuristic mood\n- Intricate mechanical details.\n\nAspect ratio: 9:16 vertical",
+      "Create a Steampunk style infographic about 'Inventions of the Industrial Revolution'.\n\nStyle specifications:\n- Mechanical gears and cogs\n- Brass and copper metallic textures\n- Victorian era aesthetic\n- Retro-futuristic mood\n- Intricate mechanical details.\n",
   },
   {
     name: "Style 29 ✨ 紙雕風 Paper Quilling",
@@ -345,7 +345,7 @@ const stylesData = [
     ],
     scenarios: ["藝術主題", "精緻設計", "節慶賀卡", "獨特質感"],
     prompt:
-      "Create a Paper Quilling artwork style infographic about 'Beauty of Four Seasons'.\n\nStyle specifications:\n- Intricate paper strip swirl patterns\n- Depth and shadows between layers\n- Elaborate curving lines\n- Colorful paper craft aesthetic\n- Artistic and delicate mood\n\nAspect ratio: 9:16 vertical",
+      "Create a Paper Quilling artwork style infographic about 'Beauty of Four Seasons'.\n\nStyle specifications:\n- Intricate paper strip swirl patterns\n- Depth and shadows between layers\n- Elaborate curving lines\n- Colorful paper craft aesthetic\n- Artistic and delicate mood\n",
   },
   {
     name: "Style 30 ✨ 平面攝影風 Flat Lay Photography",
@@ -357,7 +357,7 @@ const stylesData = [
     ],
     scenarios: ["食譜教學", "產品展示", "生活風格", "整理收納"],
     prompt:
-      "Create a Flat Lay Photography style infographic about 'Home Organization Tips'.\n\nStyle specifications:\n- Top-down bird's eye view\n- Arranged real objects\n- Clean light background\n- DIY aesthetic\n- Organized and visually pleasing layout\n\nAspect ratio: 9:16 vertical",
+      "Create a Flat Lay Photography style infographic about 'Home Organization Tips'.\n\nStyle specifications:\n- Top-down bird's eye view\n- Arranged real objects\n- Clean light background\n- DIY aesthetic\n- Organized and visually pleasing layout\n",
   },
   {
     name: "Style 31 ✨ 玻璃擬態風 Glassmorphism",
@@ -369,7 +369,7 @@ const stylesData = [
     ],
     scenarios: ["科技介面", "現代設計", "App 展示", "高級質感"],
     prompt:
-      "Create a Glassmorphism style infographic about 'Smart Home Control Panel'.\n\nStyle specifications:\n- Frosted glass effect\n- Semi-transparent blur background\n- Soft shadows and highlights\n- Modern UI aesthetic\n- Clean and premium feel.\n\nAspect ratio: 9:16 vertical",
+      "Create a Glassmorphism style infographic about 'Smart Home Control Panel'.\n\nStyle specifications:\n- Frosted glass effect\n- Semi-transparent blur background\n- Soft shadows and highlights\n- Modern UI aesthetic\n- Clean and premium feel.\n",
   },
   {
     name: "Style 32 ✨ 等距小屋風 Isometric Diorama",
@@ -381,6 +381,6 @@ const stylesData = [
     ],
     scenarios: ["場景說明", "空間規劃", "概念展示", "趣味設計"],
     prompt:
-      "Create a 3D Isometric Diorama style infographic about 'Ideal Workspace Setup'.\n\nStyle specifications:\n- Miniature platform scene\n- Cute polished 3D style\n- Soft pastel colors\n- Tiny detailed models\n- Playful and charming aesthetic.\n\nAspect ratio: 9:16 vertical",
+      "Create a 3D Isometric Diorama style infographic about 'Ideal Workspace Setup'.\n\nStyle specifications:\n- Miniature platform scene\n- Cute polished 3D style\n- Soft pastel colors\n- Tiny detailed models\n- Playful and charming aesthetic.\n",
   },
 ];

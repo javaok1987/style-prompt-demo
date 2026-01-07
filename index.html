@@ -101,6 +101,17 @@
         cursor: pointer;
       }
 
+      .select-wrapper select {
+        border: none;
+        background: none;
+        font-family: inherit;
+        font-size: inherit;
+        color: inherit;
+        cursor: pointer;
+        outline: none;
+        padding-right: 4px;
+      }
+
       input[type="color"] {
         border: none;
         width: 24px;
@@ -310,6 +321,17 @@
     <header>
       <h1>Nano Banana 繪圖風格提示詞庫</h1>
       <div class="controls">
+        <div class="color-picker-wrapper select-wrapper">
+          <label for="aspectRatio">比例</label>
+          <select id="aspectRatio">
+            <option value="Aspect ratio: 16:9 horizontal">16:9 橫向</option>
+            <option value="Aspect ratio: 9:16 vertical">9:16 直向</option>
+            <option value="Aspect ratio: 1:1 square">1:1 方形</option>
+            <option value="Aspect ratio: 4:3 horizontal">4:3 橫向</option>
+            <option value="Aspect ratio: 3:4 vertical">3:4 直向</option>
+            <option value="Aspect ratio: 21:9 ultrawide">21:9 超寬</option>
+          </select>
+        </div>
         <div class="color-picker-wrapper">
           <label for="colorPicker">主題色 (Dynamic Color)</label>
           <input type="color" id="colorPicker" value="#E07A5F" />
@@ -335,6 +357,17 @@
       // ---------------------------------------------------------
       const grid = document.getElementById("styleGrid");
       const categoryFilters = document.getElementById("categoryFilters");
+
+      // Aspect Ratio Logic
+      const aspectRatioSelect = document.getElementById("aspectRatio");
+      let currentAspectRatio = "Aspect ratio: 16:9 horizontal"; // Default
+
+      if (aspectRatioSelect) {
+        aspectRatioSelect.addEventListener("change", (e) => {
+          currentAspectRatio = e.target.value;
+          filterStyles(currentCategory); // Re-render to update prompt text
+        });
+      }
 
       const categories = [
         {
@@ -473,13 +506,14 @@
              </div>`
             : "";
 
+          // Append aspect ratio to prompt for display
+          const displayPrompt = style.prompt.trim() + "\n" + currentAspectRatio;
+
           // Use originalIndex for the copy function
           card.innerHTML = `
                 <h3 class="card-title">${style.name}</h3>
                 ${featuresList}
                 ${scenariosList}
-                <div class="card-section-title">提示詞</div>
-                <div class="card-prompt">${style.prompt}</div>
                 <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})">
                     複製提示詞
                 </button>
@@ -496,7 +530,9 @@
       // 3. COPY FUNCTIONALITY
       // ---------------------------------------------------------
       function copyToClipboard(index) {
-        const text = stylesData[index].prompt;
+        // Append aspect ratio to prompt for clipboard
+        const text =
+          stylesData[index].prompt.trim() + "\n" + currentAspectRatio;
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard

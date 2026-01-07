@@ -27,8 +27,27 @@ const stylesData = files.map(file => {
     const promptMatch = content.match(/```text\n([\s\S]*?)\n```/);
     let prompt = promptMatch ? promptMatch[1].trim() : '';
 
+    // Helper to extract list items from a section
+    const extractList = (sectionHeaderRegex) => {
+        const match = content.match(new RegExp(`${sectionHeaderRegex.source}\\n([\\s\\S]*?)(?=\\n##|$)`));
+        if (!match) return [];
+        return match[1]
+            .split('\n')
+            .map(line => line.trim())
+            .filter(line => line.startsWith('*') || line.startsWith('-'))
+            .map(line => line.replace(/^[\*\-]\s*/, '').trim()); // Remove bullet and space
+    };
+
+    // Extract Core Features (核心特色)
+    const features = extractList(/## 核心特色/);
+
+    // Extract Applicable Scenarios (適用場景) - allowing for optional emoji or text after
+    const scenarios = extractList(/## 適用場景.*/);
+
     return {
         name: name,
+        features: features,
+        scenarios: scenarios,
         prompt: prompt
     };
 });

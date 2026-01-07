@@ -270,6 +270,40 @@
       .filter-btn-special {
         background-color: #e5989b;
       } /* Earthy Pink */
+
+      .card-section-title {
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: var(--md-sys-color-on-surface);
+      }
+
+      .card-features {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin: 0;
+        font: var(--md-sys-typescale-body-medium);
+        color: var(--md-sys-color-on-surface-variant);
+      }
+
+      .card-features li {
+        margin-bottom: 4px;
+      }
+
+      .card-scenarios {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .scenario-tag {
+        background-color: var(--md-sys-color-secondary-container);
+        color: var(--md-sys-color-on-secondary-container);
+        padding: 4px 12px;
+        border-radius: 16px;
+        font-size: 12px;
+        font-weight: 500;
+      }
     </style>
   </head>
   <body>
@@ -409,9 +443,42 @@
           const card = document.createElement("div");
           card.className = "card";
 
+          // Format features
+          const featuresList = style.features
+            ? `<div class="card-section">
+               <div class="card-section-title">特色</div>
+               <ul class="card-features">
+                 ${style.features
+                   .map(
+                     (f) =>
+                       `<li>${f.replace(
+                         /\*\*(.*?)\*\*/g,
+                         "<strong>$1</strong>"
+                       )}</li>`
+                   )
+                   .join("")}
+               </ul>
+             </div>`
+            : "";
+
+          // Format scenarios
+          const scenariosList = style.scenarios
+            ? `<div class="card-section">
+               <div class="card-section-title">適用場景</div>
+               <div class="card-scenarios">
+                 ${style.scenarios
+                   .map((s) => `<span class="scenario-tag">${s}</span>`)
+                   .join("")}
+               </div>
+             </div>`
+            : "";
+
           // Use originalIndex for the copy function
           card.innerHTML = `
                 <h3 class="card-title">${style.name}</h3>
+                ${featuresList}
+                ${scenariosList}
+                <div class="card-section-title">提示詞</div>
                 <div class="card-prompt">${style.prompt}</div>
                 <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})">
                     複製提示詞

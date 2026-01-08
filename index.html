@@ -342,6 +342,14 @@
           </select>
         </div>
         <div class="color-picker-wrapper">
+          <label for="showPrompts">顯示提示詞</label>
+          <input
+            type="checkbox"
+            id="showPrompts"
+            style="width: 18px; height: 18px"
+          />
+        </div>
+        <div class="color-picker-wrapper">
           <label for="colorPicker">主題色 (Dynamic Color)</label>
           <input type="color" id="colorPicker" value="#E07A5F" />
         </div>
@@ -375,6 +383,17 @@
         aspectRatioSelect.addEventListener("change", (e) => {
           currentAspectRatio = e.target.value;
           filterStyles(currentCategory); // Re-render to update prompt text
+        });
+      }
+
+      // Show/Hide Prompts Logic
+      const showPromptsCheckbox = document.getElementById("showPrompts");
+      let isPromptVisible = false; // Default
+
+      if (showPromptsCheckbox) {
+        showPromptsCheckbox.addEventListener("change", (e) => {
+          isPromptVisible = e.target.checked;
+          filterStyles(currentCategory);
         });
       }
 
@@ -523,13 +542,17 @@
           const imagePath = `images/style_${imageNumber}.png`;
 
           // Use originalIndex for the copy function
+          const promptDisplay = isPromptVisible
+            ? `<div class="card-section-title">提示詞</div>
+               <div class="card-prompt">${displayPrompt}</div>`
+            : "";
+
           card.innerHTML = `
                 <h3 class="card-title">${style.name}</h3>
                 <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy">
                 ${featuresList}
                 ${scenariosList}
-                <div class="card-section-title">提示詞</div>
-                <div class="card-prompt">${displayPrompt}</div>
+                ${promptDisplay}
                 <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})">
                     複製提示詞
                 </button>

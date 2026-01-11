@@ -26,6 +26,9 @@ const stylesData = files.map(file => {
     // Extract Prompt (content inside ```text ... ```)
     const promptMatch = content.match(/```text\n([\s\S]*?)\n```/);
     let prompt = promptMatch ? promptMatch[1].trim() : '';
+    
+    // Replace about "xxx" content with {PROMPT}
+    prompt = prompt.replace(/about ".*?"/g, 'about "{PROMPT}"');
 
     // Helper to extract list items from a section
     const extractList = (sectionHeaderRegex) => {

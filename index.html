@@ -329,6 +329,7 @@
   <body>
     <header>
       <h1>Nano Banana 繪圖風格提示詞庫</h1>
+
       <div class="controls">
         <div class="color-picker-wrapper select-wrapper">
           <label for="aspectRatio">比例</label>
@@ -341,18 +342,35 @@
             <option value="Aspect ratio: 21:9 ultrawide">21:9 超寬</option>
           </select>
         </div>
-        <div class="color-picker-wrapper">
+
+         <div class="color-picker-wrapper">
           <label for="showPrompts">顯示提示詞</label>
           <input
             type="checkbox"
             id="showPrompts"
-            style="width: 18px; height: 18px"
+            style="width: 18px; height: 18px; display: none;"
           />
         </div>
+
+        <!--
         <div class="color-picker-wrapper">
           <label for="colorPicker">主題色 (Dynamic Color)</label>
           <input type="color" id="colorPicker" value="#E07A5F" />
         </div>
+        -->
+
+        <div class="color-picker-wrapper">
+          <label for="customContent">Content</label>
+          <input
+            type="text"
+            id="customContent"
+            placeholder="自訂提示詞..."
+            style="border: none; background: none; outline: none; font: inherit; color: inherit; width: 120px;"
+          />
+        </div>
+
+
+
       </div>
     </header>
 
@@ -382,6 +400,17 @@
       if (aspectRatioSelect) {
         aspectRatioSelect.addEventListener("change", (e) => {
           currentAspectRatio = e.target.value;
+          filterStyles(currentCategory); // Re-render to update prompt text
+        });
+      }
+
+      // Custom Content Logic
+      const customContentInput = document.getElementById("customContent");
+      let customContent = "";
+
+      if (customContentInput) {
+        customContentInput.addEventListener("input", (e) => {
+          customContent = e.target.value;
           filterStyles(currentCategory); // Re-render to update prompt text
         });
       }
@@ -535,7 +564,11 @@
             : "";
 
           // Append aspect ratio to prompt for display
-          const displayPrompt = style.prompt.trim() + "\n" + currentAspectRatio;
+          let promptText = style.prompt;
+          if (customContent) {
+            promptText = promptText.replace(/{PROMPT}/g, customContent);
+          }
+          const displayPrompt = promptText.trim() + "\n" + currentAspectRatio;
 
           // Image path based on originalIndex (1-indexed)
           const imageNumber = style.originalIndex + 1;
@@ -570,8 +603,12 @@
       // ---------------------------------------------------------
       function copyToClipboard(index) {
         // Append aspect ratio to prompt for clipboard
+        let promptText = stylesData[index].prompt;
+        if (customContent) {
+          promptText = promptText.replace(/{PROMPT}/g, customContent);
+        }
         const text =
-          stylesData[index].prompt.trim() + "\n" + currentAspectRatio;
+          promptText.trim() + "\n" + currentAspectRatio;
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard

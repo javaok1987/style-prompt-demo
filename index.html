@@ -324,6 +324,62 @@
         font-size: 12px;
         font-weight: 500;
       }
+
+      /* Modal / Lightbox */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.8);
+        backdrop-filter: blur(5px);
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+
+      .modal.show {
+        opacity: 1;
+      }
+
+      .modal-content {
+        margin: auto;
+        display: block;
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: var(--md-sys-shape-corner-large);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        transform: scale(0.8);
+        transition: transform 0.3s ease;
+      }
+
+      .modal.show .modal-content {
+        transform: scale(1);
+      }
+
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -383,6 +439,12 @@
     </div>
 
     <div id="toast">已複製到剪貼簿！</div>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modalImage">
+    </div>
 
     <script src="stylesData.js"></script>
 
@@ -582,7 +644,7 @@
 
           card.innerHTML = `
                 <h3 class="card-title">${style.name}</h3>
-                <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy">
+                <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy" style="cursor: pointer;" onclick="openModal('${imagePath}')">
                 ${featuresList}
                 ${scenariosList}
                 ${promptDisplay}
@@ -659,7 +721,51 @@
       }
 
       // ---------------------------------------------------------
-      // 4. DYNAMIC COLOR LOGIC (Simple Simulation)
+      // 4. MODAL LOGIC
+      // ---------------------------------------------------------
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const closeBtn = document.getElementsByClassName("close")[0];
+
+      function openModal(src) {
+        modal.style.display = "flex";
+        // Force reflow for transition
+        void modal.offsetWidth;
+        modal.classList.add("show");
+        modalImg.src = src;
+        document.body.style.overflow = "hidden"; // Prevent scrolling
+      }
+
+      function closeModal() {
+        modal.classList.remove("show");
+        setTimeout(() => {
+          modal.style.display = "none";
+          document.body.style.overflow = ""; // Restore scrolling
+        }, 300); // Match transition duration
+      }
+
+      if (closeBtn) {
+        closeBtn.onclick = function() {
+          closeModal();
+        }
+      }
+
+      if (modal) {
+        modal.onclick = function(event) {
+          if (event.target === modal) {
+            closeModal();
+          }
+        }
+      }
+
+      document.addEventListener('keydown', function(event) {
+        if (event.key === "Escape" && modal.style.display === "flex") {
+          closeModal();
+        }
+      });
+
+      // ---------------------------------------------------------
+      // 5. DYNAMIC COLOR LOGIC (Simple Simulation)
       // ---------------------------------------------------------
       const colorPicker = document.getElementById("colorPicker");
 

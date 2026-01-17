@@ -178,6 +178,56 @@
         flex-grow: 1;
       }
 
+      /* Pinned Badge */
+      .pinned-badge {
+        position: absolute;
+        top: 12px;
+        right: 48px; /* Moved left to make room for pin button */
+        background-color: var(--md-sys-color-primary);
+        color: var(--md-sys-color-on-primary);
+        padding: 4px 12px;
+        border-radius: var(--md-sys-shape-corner-full);
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 10;
+        box-shadow: var(--md-sys-elevation-level1);
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        pointer-events: none;
+      }
+
+      /* Pin Button */
+      .pin-btn {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 11;
+        font-size: 16px;
+        transition: all 0.2s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      }
+
+      .pin-btn:hover {
+        background: white;
+        transform: scale(1.1);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+      }
+
+      .pin-btn.active {
+        background: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+      }
+
       /* Capsule Button */
       .btn-copy {
         background-color: var(--md-sys-color-primary);
@@ -539,6 +589,33 @@
         },
       ];
 
+      // Pinning Logic
+      let pinnedIndices = [];
+      try {
+        const stored = localStorage.getItem('pinnedStyles');
+        if (stored) {
+          pinnedIndices = JSON.parse(stored);
+        }
+      } catch (e) {
+        console.error("Failed to load pinned styles", e);
+      }
+
+      function togglePin(originalIndex, event) {
+        if (event) {
+          event.stopPropagation();
+        }
+
+        const idx = pinnedIndices.indexOf(originalIndex);
+        if (idx === -1) {
+          pinnedIndices.push(originalIndex);
+        } else {
+          pinnedIndices.splice(idx, 1);
+        }
+
+        localStorage.setItem('pinnedStyles', JSON.stringify(pinnedIndices));
+        filterStyles(currentCategory);
+      }
+
       let currentCategory = "all";
 
       function initFilters() {
@@ -578,6 +655,16 @@
           );
         }
 
+        // Sort: Pinned items first
+        filteredData.sort((a, b) => {
+          const aPinned = pinnedIndices.includes(a.originalIndex);
+          const bPinned = pinnedIndices.includes(b.originalIndex);
+
+          if (aPinned && !bPinned) return -1;
+          if (!aPinned && bPinned) return 1;
+          return 0; // Maintain original relative order
+        });
+
         renderCards(filteredData);
       }
 
@@ -594,6 +681,16 @@
         data.forEach((style) => {
           const card = document.createElement("div");
           card.className = "card";
+
+          // Pinned Check
+          const isPinned = pinnedIndices.includes(style.originalIndex);
+
+          // Pin Button
+          const pinBtnTitle = isPinned ? "取消置頂" : "置頂";
+          const pinBtnIcon = isPinned ? "📌" : "📍";
+          const pinBtnClass = isPinned ? "pin-btn active" : "pin-btn";
+
+          const pinButton = `<button class="${pinBtnClass}" onclick="togglePin(${style.originalIndex}, event)" title="${pinBtnTitle}">${pinBtnIcon}</button>`;
 
           // Format features
           const featuresList = style.features
@@ -643,6 +740,7 @@
             : "";
 
           card.innerHTML = `
+                ${pinButton}
                 <h3 class="card-title">${style.name}</h3>
                 <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy" style="cursor: pointer;" onclick="openModal('${imagePath}')">
                 ${featuresList}
@@ -658,7 +756,7 @@
 
       // Initialize
       initFilters();
-      renderCards(); // Initial render with all data
+      filterStyles('all'); // Initial render with specific sorting (pinned first)
 
       // ---------------------------------------------------------
       // 3. COPY FUNCTIONALITY

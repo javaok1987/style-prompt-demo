@@ -228,6 +228,13 @@
         color: var(--md-sys-color-on-primary-container);
       }
 
+      /* Button Container */
+      .btn-container {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
       /* Capsule Button */
       .btn-copy {
         background-color: var(--md-sys-color-primary);
@@ -252,6 +259,39 @@
 
       .btn-copy:active {
         box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Gemini Button */
+      .btn-gemini {
+        background: white; /* Changed from gradient to white */
+        border: 2px solid transparent;
+        border-radius: 50%; /* Circle */
+        width: 48px;  /* Match height for circle */
+        height: 48px;
+        padding: 0;
+        cursor: pointer;
+        transition: box-shadow 0.2s, transform 0.2s, background-color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      }
+
+      .btn-gemini img {
+        width: 24px;
+        height: 24px;
+        display: block;
+      }
+
+      .btn-gemini:hover {
+        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+        transform: translateY(-2px) scale(1.05);
+        background-color: #f8f9fa;
+      }
+
+      .btn-gemini:active {
+        transform: translateY(0) scale(0.95);
+        opacity: 0.9;
       }
 
       /* Toast */
@@ -746,9 +786,14 @@
                 ${featuresList}
                 ${scenariosList}
                 ${promptDisplay}
-                <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})">
-                    複製提示詞
-                </button>
+                <div class="btn-container" style="align-items: center;">
+                  <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})" style="flex-grow: 1;">
+                      複製提示詞
+                  </button>
+                  <button class="btn-gemini" onclick="copyAndOpenGemini(${style.originalIndex})" title="在 Gemini 開啟">
+                      <img src="images/gemini_logo.svg" alt="Gemini">
+                  </button>
+                </div>
             `;
           grid.appendChild(card);
         });
@@ -774,7 +819,7 @@
           navigator.clipboard
             .writeText(text)
             .then(() => {
-              showToast();
+              showToast("已複製到剪貼簿！");
             })
             .catch((err) => {
               console.warn("Clipboard API failed, trying fallback:", err);
@@ -801,7 +846,7 @@
         try {
           const successful = document.execCommand("copy");
           if (successful) {
-            showToast();
+            showToast("已複製到剪貼簿！");
           }
         } catch (err) {
           console.error("Fallback: Unable to copy", err);
@@ -810,12 +855,45 @@
         document.body.removeChild(textArea);
       }
 
-      function showToast() {
+      function showToast(message) {
         const toast = document.getElementById("toast");
+        if (message) {
+          toast.textContent = message;
+        }
         toast.className = "show";
         setTimeout(function () {
           toast.className = toast.className.replace("show", "");
         }, 3000);
+      }
+
+      // ---------------------------------------------------------
+      // COPY AND OPEN GEMINI
+      // ---------------------------------------------------------
+      function copyAndOpenGemini(index) {
+        // Build the prompt text
+        let promptText = stylesData[index].prompt;
+        if (customContent) {
+          promptText = promptText.replace(/{PROMPT}/g, customContent);
+        }
+        const text = promptText.trim() + "\n" + currentAspectRatio;
+
+        // Copy to clipboard as backup
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).catch(err => console.warn("Clipboard failed", err));
+        } else {
+          fallbackCopyTextToClipboard(text);
+        }
+
+        // Open Gemini immediately
+        showToast("已複製！正在開啟 Gemini...");
+        openGeminiWithPrompt(text);
+      }
+
+      function openGeminiWithPrompt(prompt) {
+        const encodedPrompt = encodeURIComponent(prompt);
+        // Use user-provided deep link format
+        const geminiUrl = `https://gemini.google.com/app#autoSubmit=false&pasteImage=1&tool=image&prompt=${encodedPrompt}`;
+        window.open(geminiUrl, '_blank');
       }
 
       // ---------------------------------------------------------

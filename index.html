@@ -158,13 +158,63 @@
         margin: 0;
       }
 
+      .card-image-container {
+        position: relative;
+        width: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+      }
+
       .card-image {
         width: 100%;
         height: 200px;
         object-fit: cover;
-        border-radius: 16px;
+        display: block;
         background-color: var(--md-sys-color-surface-variant);
-        margin-bottom: 8px;
+        transition: transform 0.3s ease;
+      }
+
+      .card-image-container:hover .card-image {
+        transform: scale(1.05);
+      }
+
+      .card-image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+
+      .card-image-container:hover .card-image-overlay {
+        opacity: 1;
+      }
+
+      .btn-view-details {
+        background-color: white;
+        color: var(--md-sys-color-on-surface);
+        border: none;
+        border-radius: var(--md-sys-shape-corner-full);
+        padding: 12px 24px;
+        font: var(--md-sys-typescale-title-medium);
+        cursor: pointer;
+        transition: transform 0.2s, box-shadow 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-view-details:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
       }
 
       .card-prompt {
@@ -419,13 +469,13 @@
       .modal {
         display: none;
         position: fixed;
-        z-index: 1000;
+        z-index: 1100; /* Higher than details-modal */
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
         overflow: auto;
-        background-color: rgba(0,0,0,0.8);
+        background-color: rgba(0,0,0,0.9); /* Darker backdrop */
         backdrop-filter: blur(5px);
         align-items: center;
         justify-content: center;
@@ -461,7 +511,7 @@
         font-weight: bold;
         transition: 0.3s;
         cursor: pointer;
-        z-index: 1001;
+        z-index: 1101; /* Higher than modal */
       }
 
       .close:hover,
@@ -469,6 +519,108 @@
         color: #bbb;
         text-decoration: none;
         cursor: pointer;
+      }
+
+      /* Details Modal */
+      .details-modal {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.6);
+        backdrop-filter: blur(8px);
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        padding: 24px;
+        box-sizing: border-box;
+      }
+
+      .details-modal.show {
+        opacity: 1;
+      }
+
+      .details-modal-content {
+        background-color: var(--md-sys-color-surface);
+        border-radius: var(--md-sys-shape-corner-large);
+        max-width: 600px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 32px;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        transform: scale(0.9) translateY(20px);
+        transition: transform 0.3s ease;
+        position: relative;
+      }
+
+      .details-modal.show .details-modal-content {
+        transform: scale(1) translateY(0);
+      }
+
+      .details-modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: var(--md-sys-color-surface-variant);
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 24px;
+        color: var(--md-sys-color-on-surface-variant);
+        transition: all 0.2s;
+      }
+
+      .details-modal-close:hover {
+        background: var(--md-sys-color-primary-container);
+        color: var(--md-sys-color-on-primary-container);
+      }
+
+      .details-modal-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+        padding-right: 48px;
+      }
+
+      .details-modal-image {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 16px;
+        flex-shrink: 0;
+        cursor: pointer;
+        transition: transform 0.2s;
+      }
+
+      .details-modal-image:hover {
+        transform: scale(1.05);
+      }
+
+      .details-modal-title {
+        font: var(--md-sys-typescale-headline-large);
+        font-size: 24px;
+        margin: 0;
+        color: var(--md-sys-color-on-surface);
+      }
+
+      .details-modal-section {
+        margin-bottom: 20px;
+      }
+
+      .details-modal-section:last-child {
+        margin-bottom: 0;
       }
     </style>
   </head>
@@ -489,7 +641,7 @@
           </select>
         </div>
 
-         <div class="color-picker-wrapper">
+        <div class="color-picker-wrapper">
           <label for="showPrompts">顯示提示詞</label>
           <input
             type="checkbox"
@@ -534,6 +686,14 @@
     <div id="imageModal" class="modal">
       <span class="close">&times;</span>
       <img class="modal-content" id="modalImage">
+    </div>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="details-modal">
+      <div class="details-modal-content" id="detailsModalContent">
+        <button class="details-modal-close" onclick="closeDetailsModal()">&times;</button>
+        <div id="detailsModalBody"></div>
+      </div>
     </div>
 
     <script src="stylesData.js"></script>
@@ -732,67 +892,21 @@
 
           const pinButton = `<button class="${pinBtnClass}" onclick="togglePin(${style.originalIndex}, event)" title="${pinBtnTitle}">${pinBtnIcon}</button>`;
 
-          // Format features
-          const featuresList = style.features
-            ? `<div class="card-section">
-               <div class="card-section-title">特色</div>
-               <ul class="card-features">
-                 ${style.features
-                   .map(
-                     (f) =>
-                       `<li>${f.replace(
-                         /\*\*(.*?)\*\*/g,
-                         "<strong>$1</strong>"
-                       )}</li>`
-                   )
-                   .join("")}
-               </ul>
-             </div>`
-            : "";
-
-          // Format scenarios
-          const scenariosList = style.scenarios
-            ? `<div class="card-section">
-               <div class="card-section-title">適用場景</div>
-               <div class="card-scenarios">
-                 ${style.scenarios
-                   .map((s) => `<span class="scenario-tag">${s}</span>`)
-                   .join("")}
-               </div>
-             </div>`
-            : "";
-
-          // Append aspect ratio to prompt for display
-          let promptText = style.prompt;
-          if (customContent) {
-            promptText = promptText.replace(/{PROMPT}/g, customContent);
-          }
-          const displayPrompt = promptText.trim() + "\n" + currentAspectRatio;
-
           // Image path based on originalIndex (1-indexed)
           const imageNumber = style.originalIndex + 1;
           const imagePath = `images/style_${imageNumber}.png`;
 
-          // Use originalIndex for the copy function
-          const promptDisplay = isPromptVisible
-            ? `<div class="card-section-title">提示詞</div>
-               <div class="card-prompt">${displayPrompt}</div>`
-            : "";
-
+          // Simplified card: only title + image with hover overlay
           card.innerHTML = `
                 ${pinButton}
                 <h3 class="card-title">${style.name}</h3>
-                <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy" style="cursor: pointer;" onclick="openModal('${imagePath}')">
-                ${featuresList}
-                ${scenariosList}
-                ${promptDisplay}
-                <div class="btn-container" style="align-items: center;">
-                  <button class="btn-copy" onclick="copyToClipboard(${style.originalIndex})" style="flex-grow: 1;">
-                      複製提示詞
-                  </button>
-                  <button class="btn-gemini" onclick="copyAndOpenGemini(${style.originalIndex})" title="在 Gemini 開啟">
-                      <img src="images/gemini_logo.svg" alt="Gemini">
-                  </button>
+                <div class="card-image-container">
+                  <img src="${imagePath}" alt="${style.name}" class="card-image" loading="lazy">
+                  <div class="card-image-overlay" onclick="openDetailsModal(${style.originalIndex})">
+                    <button class="btn-view-details">
+                      <span>👁️</span> 查看詳情
+                    </button>
+                  </div>
                 </div>
             `;
           grid.appendChild(card);
@@ -896,8 +1010,113 @@
         window.open(geminiUrl, '_blank');
       }
 
+      function toggleSinglePrompt(index) {
+        const el = document.getElementById(`prompt-${index}`);
+        if (el) {
+            el.style.display = el.style.display === 'none' ? 'block' : 'none';
+        }
+      }
+
+      // ---------------------------------------------------------
+      // DETAILS MODAL LOGIC
+      // ---------------------------------------------------------
+      const detailsModal = document.getElementById("detailsModal");
+      const detailsModalBody = document.getElementById("detailsModalBody");
+
+      function openDetailsModal(index) {
+        const style = stylesData[index];
+        const imageNumber = index + 1;
+        const imagePath = `images/style_${imageNumber}.png`;
+
+        // Format features
+        const featuresList = style.features
+          ? `<div class="details-modal-section">
+               <div class="card-section-title">特色</div>
+               <ul class="card-features">
+                 ${style.features
+                   .map(
+                     (f) =>
+                       `<li>${f.replace(
+                         /\*\*(.*?)\*\*/g,
+                         "<strong>$1</strong>"
+                       )}</li>`
+                   )
+                   .join("")}
+               </ul>
+             </div>`
+          : "";
+
+        // Format scenarios
+        const scenariosList = style.scenarios
+          ? `<div class="details-modal-section">
+               <div class="card-section-title">適用場景</div>
+               <div class="card-scenarios">
+                 ${style.scenarios
+                   .map((s) => `<span class="scenario-tag">${s}</span>`)
+                   .join("")}
+               </div>
+             </div>`
+          : "";
+
+        // Append aspect ratio to prompt for display
+        let promptText = style.prompt;
+        if (customContent) {
+          promptText = promptText.replace(/{PROMPT}/g, customContent);
+        }
+        const displayPrompt = promptText.trim() + "\\n" + currentAspectRatio;
+
+        const promptDisplay = `
+          <div class="details-modal-section">
+            <div class="card-section-title">提示詞</div>
+            <div class="card-prompt">${displayPrompt}</div>
+          </div>`;
+
+        detailsModalBody.innerHTML = `
+          <div class="details-modal-header">
+            <img src="${imagePath}" alt="${style.name}" class="details-modal-image" onclick="openModal('${imagePath}')">
+            <h2 class="details-modal-title">${style.name}</h2>
+          </div>
+          ${featuresList}
+          ${scenariosList}
+          ${promptDisplay}
+          <div class="btn-container" style="align-items: center; margin-top: 24px;">
+            <button class="btn-copy" onclick="copyToClipboard(${index})" style="flex-grow: 1;">
+                複製提示詞
+            </button>
+            <button class="btn-gemini" onclick="copyAndOpenGemini(${index})" title="在 Gemini 開啟">
+                <img src="images/gemini_logo.svg" alt="Gemini">
+            </button>
+          </div>
+        `;
+
+        detailsModal.style.display = "flex";
+        void detailsModal.offsetWidth;
+        detailsModal.classList.add("show");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeDetailsModal() {
+        detailsModal.classList.remove("show");
+        setTimeout(() => {
+          detailsModal.style.display = "none";
+          document.body.style.overflow = "";
+        }, 300);
+      }
+
+      // Close details modal when clicking outside
+      if (detailsModal) {
+        detailsModal.onclick = function(event) {
+          if (event.target === detailsModal) {
+            closeDetailsModal();
+          }
+        }
+      }
+
       // ---------------------------------------------------------
       // 4. MODAL LOGIC
+      // ---------------------------------------------------------
+      // ---------------------------------------------------------
+      // 4. MODAL LOGIC (Image Lightbox)
       // ---------------------------------------------------------
       const modal = document.getElementById("imageModal");
       const modalImg = document.getElementById("modalImage");
@@ -916,8 +1135,11 @@
         modal.classList.remove("show");
         setTimeout(() => {
           modal.style.display = "none";
-          document.body.style.overflow = ""; // Restore scrolling
-        }, 300); // Match transition duration
+          // Only restore scroll if details modal is ALSO closed
+          if (!detailsModal.classList.contains("show")) {
+             document.body.style.overflow = "";
+          }
+        }, 300);
       }
 
       if (closeBtn) {
@@ -934,9 +1156,18 @@
         }
       }
 
+      // Unified Global Event Listeners
       document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape" && modal.style.display === "flex") {
-          closeModal();
+        if (event.key === "Escape") {
+          // If top-most modal (image) is open, close it
+          if (modal.style.display === "flex") {
+            closeModal();
+            return; // Stop here, don't close details yet
+          }
+          // If details modal is open (and image modal wasn't), close it
+          if (detailsModal.style.display === "flex") {
+            closeDetailsModal();
+          }
         }
       });
 

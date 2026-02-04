@@ -641,14 +641,7 @@
           </select>
         </div>
 
-        <div class="color-picker-wrapper">
-          <label for="showPrompts">顯示提示詞</label>
-          <input
-            type="checkbox"
-            id="showPrompts"
-            style="width: 18px; height: 18px; display: none;"
-          />
-        </div>
+
 
         <!--
         <div class="color-picker-wrapper">
@@ -727,16 +720,7 @@
         });
       }
 
-      // Show/Hide Prompts Logic
-      const showPromptsCheckbox = document.getElementById("showPrompts");
-      let isPromptVisible = false; // Default
 
-      if (showPromptsCheckbox) {
-        showPromptsCheckbox.addEventListener("change", (e) => {
-          isPromptVisible = e.target.checked;
-          filterStyles(currentCategory);
-        });
-      }
 
       const categories = [
         {
@@ -1010,12 +994,7 @@
         window.open(geminiUrl, '_blank');
       }
 
-      function toggleSinglePrompt(index) {
-        const el = document.getElementById(`prompt-${index}`);
-        if (el) {
-            el.style.display = el.style.display === 'none' ? 'block' : 'none';
-        }
-      }
+
 
       // ---------------------------------------------------------
       // DETAILS MODAL LOGIC

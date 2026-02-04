@@ -713,6 +713,25 @@
       const customContentInput = document.getElementById("customContent");
       let customContent = "";
 
+      // Negative Prompt Constant
+      const NEGATIVE_PROMPT = `
+負向約束
+Negative prompt: blurry text, gibberish, typo, misspelling, distorted graphs, extra limbs, low resolution, watermark, signature, cut off text, ugly, deformed, lowpoly, amateur design, cluttered, unreadable text, incorrect spelling, broken layout, pixelated, jpeg artifacts, cropped content`;
+
+      // Helper to build the full prompt string
+      function buildFullPrompt(index) {
+        let promptText = stylesData[index].prompt;
+        if (customContent) {
+          promptText = promptText.replace(/{PROMPT}/g, customContent);
+        }
+
+        // Append Negative Prompt
+        promptText += "\n" + NEGATIVE_PROMPT;
+
+        // Append Aspect Ratio
+        return promptText.trim() + "\n\n" + currentAspectRatio;
+      }
+
       if (customContentInput) {
         customContentInput.addEventListener("input", (e) => {
           customContent = e.target.value;
@@ -905,13 +924,7 @@
       // 3. COPY FUNCTIONALITY
       // ---------------------------------------------------------
       function copyToClipboard(index) {
-        // Append aspect ratio to prompt for clipboard
-        let promptText = stylesData[index].prompt;
-        if (customContent) {
-          promptText = promptText.replace(/{PROMPT}/g, customContent);
-        }
-        const text =
-          promptText.trim() + "\n" + currentAspectRatio;
+        const text = buildFullPrompt(index);
 
         if (navigator.clipboard && navigator.clipboard.writeText) {
           navigator.clipboard
@@ -968,12 +981,7 @@
       // COPY AND OPEN GEMINI
       // ---------------------------------------------------------
       function copyAndOpenGemini(index) {
-        // Build the prompt text
-        let promptText = stylesData[index].prompt;
-        if (customContent) {
-          promptText = promptText.replace(/{PROMPT}/g, customContent);
-        }
-        const text = promptText.trim() + "\n" + currentAspectRatio;
+        const text = buildFullPrompt(index);
 
         // Copy to clipboard as backup
         if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -1037,12 +1045,8 @@
              </div>`
           : "";
 
-        // Append aspect ratio to prompt for display
-        let promptText = style.prompt;
-        if (customContent) {
-          promptText = promptText.replace(/{PROMPT}/g, customContent);
-        }
-        const displayPrompt = promptText.trim() + "\\n" + currentAspectRatio;
+        // Build Full Prompt
+        const displayPrompt = buildFullPrompt(index);
 
         const promptDisplay = `
           <div class="details-modal-section">

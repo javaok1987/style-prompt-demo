@@ -92,8 +92,9 @@ Negative prompt: blurry text, gibberish, typo, misspelling, distorted graphs, ex
     if (customContent) {
       promptText = promptText.replace(/{PROMPT}/g, customContent);
     }
+    promptText += "\n" + aspectRatio;
     promptText += "\n" + NEGATIVE_PROMPT;
-    return promptText.trim() + "\n\n" + aspectRatio;
+    return promptText.trim();
   };
 
   return buildFullPrompt;

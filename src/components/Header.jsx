@@ -7,7 +7,7 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
 
       <div className="controls">
         <div className="color-picker-wrapper select-wrapper">
-          <label htmlFor="aspectRatio">比例</label>
+          <label htmlFor="aspectRatio" style={{ whiteSpace: 'nowrap' }}>比例</label>
           <select
             id="aspectRatio"
             value={aspectRatio}
@@ -23,26 +23,26 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
         </div>
 
         <div className="color-picker-wrapper">
-          <label htmlFor="searchTerm">搜尋</label>
+          <label htmlFor="searchTerm" style={{ whiteSpace: 'nowrap' }}>搜尋</label>
           <input
             type="text"
             id="searchTerm"
-            placeholder="提示詞、標籤或內容"
+            placeholder="提示詞..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
+            className="transparent-input"
           />
         </div>
 
         <div className="color-picker-wrapper">
-          <label htmlFor="customContent">內容</label>
+          <label htmlFor="customContent" style={{ whiteSpace: 'nowrap' }}>內容</label>
           <input
             type="text"
             id="customContent"
             placeholder="自訂提示詞"
             value={customContent}
             onChange={(e) => setCustomContent(e.target.value)}
-            style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
+            className="transparent-input"
           />
         </div>
       </div>

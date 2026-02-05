@@ -74,7 +74,7 @@ function App() {
                 setSelectedStyle(s);
                 setSelectedStyleIndex(i);
             }}
-            onImageClick={(imgIndex) => setZoomedImageSrc(`images/style_${imgIndex}.webp`)}
+            onImageClick={(imgIndex) => setZoomedImageSrc(`images/style_${imgIndex}.png`)}
           />
         ))}
       </div>
@@ -94,7 +94,7 @@ function App() {
         onClose={() => setSelectedStyle(null)}
         onImageClick={(imgIndex) => {
             setSelectedStyle(null);
-            setZoomedImageSrc(`images/style_${imgIndex}.webp`);
+            setZoomedImageSrc(`images/style_${imgIndex}.png`);
         }}
         promptText={selectedStyle ? buildFullPrompt(selectedStyle) : ''}
         onCopy={handleCopy}

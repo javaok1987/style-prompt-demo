@@ -10,7 +10,7 @@ const DetailsModal = ({ show, style, index, onClose, onImageClick, promptText, o
 
         <div className="details-modal-header">
           <img
-            src={`images/style_${index + 1}.webp`}
+            src={`images/style_${index + 1}.png`}
             alt={style.name}
             className="details-modal-image"
             onClick={() => onImageClick(index + 1)}
@@ -18,8 +18,19 @@ const DetailsModal = ({ show, style, index, onClose, onImageClick, promptText, o
           <div>
             <h2 className="details-modal-title">{style.name}</h2>
             <div className="btn-container" style={{marginTop: '16px'}}>
-              <button className="btn-copy" onClick={() => onCopy(promptText)}>
-                📋 Copy Prompt
+              <button className="btn-copy" onClick={() => onCopy(promptText)} style={{flexGrow: 1}}>
+                複製提示詞
+              </button>
+              <button
+                className="btn-gemini"
+                onClick={() => {
+                    onCopy(promptText);
+                    const encodedPrompt = encodeURIComponent(promptText);
+                    window.open(`https://gemini.google.com/app#autoSubmit=false&pasteImage=1&tool=image&prompt=${encodedPrompt}`, "_blank");
+                }}
+                title="Copy and open Gemini"
+              >
+                <img src="images/gemini_logo.svg" alt="Gemini" />
               </button>
             </div>
           </div>

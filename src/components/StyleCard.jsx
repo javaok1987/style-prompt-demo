@@ -1,8 +1,8 @@
 import React from 'react';
 
-const StyleCard = ({ style, index, isPinned, onPin, onCopy, onViewDetails, onImageClick, promptText }) => {
+const StyleCard = ({ style, index, isPinned, onPin, onViewDetails, promptText }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={() => onViewDetails(style, index)} style={{cursor: 'pointer'}}>
       {isPinned && (
         <div className="pinned-badge">
           <span>📌</span> Pinned
@@ -20,31 +20,20 @@ const StyleCard = ({ style, index, isPinned, onPin, onCopy, onViewDetails, onIma
         {isPinned ? '★' : '☆'}
       </button>
 
-      <div className="card-image-container" onClick={() => onImageClick(index + 1)}>
+      <h3 className="card-title" style={{ marginBottom: '16px' }}>{style.name}</h3>
+
+      <div className="card-image-container">
         <img
-            src={`images/style_${index + 1}.webp`}
+            src={`images/style_${index + 1}.png`}
             alt={style.name}
             className="card-image"
             loading="lazy"
         />
         <div className="card-image-overlay">
-          <span style={{color: 'white', fontWeight: 'bold'}}>View Large</span>
+          <button className="btn-view-details" style={{pointerEvents: 'none'}}>
+            查看詳情
+          </button>
         </div>
-      </div>
-
-      <h3 className="card-title">{style.name}</h3>
-
-      <div className="card-prompt">
-        {promptText}
-      </div>
-
-      <div className="btn-container">
-        <button className="btn-copy" onClick={() => onCopy(promptText)}>
-          📋 Copy Prompt
-        </button>
-        <button className="btn-view-details" onClick={() => onViewDetails(style, index)}>
-          💡 View Details
-        </button>
       </div>
     </div>
   );

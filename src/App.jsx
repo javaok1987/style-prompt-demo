@@ -93,7 +93,6 @@ function App() {
         index={selectedStyleIndex}
         onClose={() => setSelectedStyle(null)}
         onImageClick={(imgIndex) => {
-            setSelectedStyle(null);
             setZoomedImageSrc(`images/style_${imgIndex}.png`);
         }}
         promptText={selectedStyle ? buildFullPrompt(selectedStyle) : ''}

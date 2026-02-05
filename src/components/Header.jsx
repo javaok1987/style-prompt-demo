@@ -23,25 +23,25 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
         </div>
 
         <div className="color-picker-wrapper">
-          <label htmlFor="customContent">Content</label>
+          <label htmlFor="searchTerm">搜尋</label>
           <input
             type="text"
-            id="customContent"
-            placeholder="自訂提示詞..."
-            value={customContent}
-            onChange={(e) => setCustomContent(e.target.value)}
+            id="searchTerm"
+            placeholder="提示詞、標籤或內容"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
           />
         </div>
 
         <div className="color-picker-wrapper">
-          <label htmlFor="searchTerm">Search</label>
+          <label htmlFor="customContent">內容</label>
           <input
             type="text"
-            id="searchTerm"
-            placeholder="搜尋..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            id="customContent"
+            placeholder="自訂提示詞"
+            value={customContent}
+            onChange={(e) => setCustomContent(e.target.value)}
             style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
           />
         </div>

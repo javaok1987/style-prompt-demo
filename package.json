@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/javaok1987/style-prompt-demo/issues"
   },
-  "homepage": "https://github.com/javaok1987/style-prompt-demo#readme",
+  "homepage": "https://javaok1987.github.io/style-prompt-demo/",
   "dependencies": {
     "react": "^19.2.4",
     "react-dom": "^19.2.4"

@@ -18,7 +18,11 @@ const DetailsModal = ({ show, style, index, onClose, onImageClick, promptText, o
           <div>
             <h2 className="details-modal-title">{style.name}</h2>
             <div className="btn-container" style={{marginTop: '16px'}}>
-              <button className="btn-copy" onClick={() => onCopy(promptText)} style={{flexGrow: 1}}>
+              <button className="btn-copy" onClick={() => onCopy(promptText)} style={{ flexGrow: 1 }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+                  <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path>
+                </svg>
                 複製提示詞
               </button>
               <button
@@ -60,7 +64,7 @@ const DetailsModal = ({ show, style, index, onClose, onImageClick, promptText, o
           <div className="card-section-title">適用場景 Scenarios</div>
           <div className="card-scenarios">
             {style.scenarios.map((scenario, i) => (
-              <span key={i} className="scenario-tag">{scenario}</span>
+              <span key={i} className="scenario-tag">#{scenario}</span>
             ))}
           </div>
         </div>

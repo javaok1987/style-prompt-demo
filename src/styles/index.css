@@ -61,6 +61,11 @@ header {
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
+
+  /* Sticky Positioning */
+  position: sticky;
+  top: 20px;
+  z-index: 900;
 }
 
 h1 {
@@ -146,7 +151,31 @@ input::placeholder {
   outline: none;
   font: inherit;
   color: inherit;
-  width: 120px;
+  width: 150px;
+}
+
+.clear-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  line-height: 1;
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  opacity: 0.6;
+}
+
+.clear-btn:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--text-primary);
 }
 
 /* Category Filters */
@@ -636,4 +665,5 @@ input::placeholder {
   border-radius: var(--radius-full);
   font-size: 0.85rem;
   font-weight: 600;
+  margin-right: 8px;
 }

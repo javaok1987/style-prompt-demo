@@ -7,7 +7,7 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
 
       <div className="controls">
         <div className="color-picker-wrapper select-wrapper">
-          <label htmlFor="aspectRatio" style={{ whiteSpace: 'nowrap' }}>比例</label>
+          <label htmlFor="aspectRatio" style={{ whiteSpace: 'nowrap' }}>圖片比例</label>
           <select
             id="aspectRatio"
             value={aspectRatio}
@@ -27,11 +27,20 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
           <input
             type="text"
             id="searchTerm"
-            placeholder="提示詞..."
+            placeholder="提示詞、標籤、內容"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="transparent-input"
           />
+          {searchTerm && (
+            <button
+              className="clear-btn"
+              onClick={() => setSearchTerm('')}
+              title="Clear search"
+            >
+              ×
+            </button>
+          )}
         </div>
 
         <div className="color-picker-wrapper">
@@ -44,6 +53,15 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
             onChange={(e) => setCustomContent(e.target.value)}
             className="transparent-input"
           />
+          {customContent && (
+            <button
+              className="clear-btn"
+              onClick={() => setCustomContent('')}
+              title="Clear content"
+            >
+              ×
+            </button>
+          )}
         </div>
       </div>
     </header>

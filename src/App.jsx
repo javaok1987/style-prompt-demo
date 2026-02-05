@@ -13,10 +13,11 @@ function App() {
   const [aspectRatio, setAspectRatio] = useState("Aspect ratio: 16:9 horizontal");
   const [customContent, setCustomContent] = useState("");
   const [currentCategory, setCurrentCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
   // Custom hooks
   const [pinnedStyles, setPinnedStyles] = useLocalStorage('pinnedStyles', []);
-  const { filteredStyles, counts } = useFilteredStyles(stylesData, currentCategory, pinnedStyles);
+  const { filteredStyles, counts } = useFilteredStyles(stylesData, currentCategory, pinnedStyles, searchTerm);
   const buildFullPrompt = usePromptBuilder(customContent, aspectRatio);
   const { show: showToast, message: toastMessage, triggerToast } = useToast();
 
@@ -52,6 +53,8 @@ function App() {
         setAspectRatio={setAspectRatio}
         customContent={customContent}
         setCustomContent={setCustomContent}
+        searchTerm={searchTerm}
+        setSearchTerm={setSearchTerm}
       />
 
       <CategoryFilter

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent }) => {
+const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, searchTerm, setSearchTerm }) => {
   return (
     <header>
       <h1>Nano Banana 繪圖風格提示詞庫</h1>
@@ -30,6 +30,18 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent }
             placeholder="自訂提示詞..."
             value={customContent}
             onChange={(e) => setCustomContent(e.target.value)}
+            style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
+          />
+        </div>
+
+        <div className="color-picker-wrapper">
+          <label htmlFor="searchTerm">Search</label>
+          <input
+            type="text"
+            id="searchTerm"
+            placeholder="搜尋..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
             style={{ border: 'none', background: 'none', outline: 'none', font: 'inherit', color: 'inherit', width: '120px' }}
           />
         </div>

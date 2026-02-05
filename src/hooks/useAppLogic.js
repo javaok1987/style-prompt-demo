@@ -22,7 +22,7 @@ export const useLocalStorage = (key, initialValue) => {
   return [storedValue, setStoredValue];
 };
 
-export const useFilteredStyles = (stylesData, currentCategory, pinnedStyles) => {
+export const useFilteredStyles = (stylesData, currentCategory, pinnedStyles, searchTerm = '') => {
   const categoryRanges = useMemo(() => ({
     all: [-1, -1], // Special case
     business: [0, 4],
@@ -55,13 +55,29 @@ export const useFilteredStyles = (stylesData, currentCategory, pinnedStyles) => 
       return a.originalIndex - b.originalIndex;
     });
 
-    if (currentCategory === 'all') return list;
+    let result = list;
 
-    const range = categoryRanges[currentCategory];
-    if (!range) return list;
+    if (currentCategory !== 'all') {
+      const range = categoryRanges[currentCategory];
+      if (range) {
+        result = result.filter(item => item.originalIndex >= range[0] && item.originalIndex <= range[1]);
+      }
+    }
 
-    return list.filter(item => item.originalIndex >= range[0] && item.originalIndex <= range[1]);
-  }, [stylesData, currentCategory, pinnedStyles, categoryRanges]);
+    if (searchTerm.trim()) {
+      const lowerTerm = searchTerm.toLowerCase();
+      result = result.filter(style => {
+        return (
+          style.name.toLowerCase().includes(lowerTerm) ||
+          style.prompt.toLowerCase().includes(lowerTerm) ||
+          style.features.some(f => f.toLowerCase().includes(lowerTerm)) ||
+          style.scenarios.some(s => s.toLowerCase().includes(lowerTerm))
+        );
+      });
+    }
+
+    return result;
+  }, [stylesData, currentCategory, pinnedStyles, categoryRanges, searchTerm]);
 
   return { filteredStyles, counts };
 };

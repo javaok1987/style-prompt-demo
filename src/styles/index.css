@@ -454,6 +454,12 @@ input::placeholder {
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
+.btn-gemini img {
+  width: 28px;
+  height: 28px;
+  pointer-events: none;
+}
+
 /* Toast */
 #toast {
   visibility: hidden;

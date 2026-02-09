@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import CategoryFilter from './components/CategoryFilter';
+import ShortPrompts from './components/ShortPrompts';
 import StyleCard from './components/StyleCard';
 import DetailsModal from './components/DetailsModal';
 import ImageModal from './components/ImageModal';
@@ -62,6 +63,8 @@ function App() {
         setCurrentCategory={setCurrentCategory}
         counts={counts}
       />
+
+      <ShortPrompts onCopy={handleCopy} />
 
       <div className="grid">
         {filteredStyles.map((style) => (

@@ -3,8 +3,8 @@ import React from 'react';
 const PinIcon = ({ isFilled }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width={isFilled ? "14" : "20"}
-    height={isFilled ? "14" : "20"}
+    width="20"
+    height="20"
     viewBox="0 0 24 24"
     fill={isFilled ? "currentColor" : "none"}
     stroke="currentColor"
@@ -28,7 +28,6 @@ const StyleCard = ({ style, index, isPinned, onPin, onViewDetails, promptText })
         title={isPinned ? "Unpin style" : "Pin style"}
       >
         <PinIcon isFilled={isPinned} />
-        {isPinned && <span>Pinned</span>}
       </button>
 
       <h3 className="card-title" style={{ marginBottom: '16px' }}>{style.name}</h3>

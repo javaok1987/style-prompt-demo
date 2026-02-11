@@ -3,12 +3,6 @@ import React from 'react';
 const StyleCard = ({ style, index, isPinned, onPin, onViewDetails, promptText }) => {
   return (
     <div className="card" onClick={() => onViewDetails(style, index)} style={{cursor: 'pointer'}}>
-      {isPinned && (
-        <div className="pinned-badge">
-          <span>📌</span> Pinned
-        </div>
-      )}
-
       <button
         className={`pin-btn ${isPinned ? 'active' : ''}`}
         onClick={(e) => {
@@ -17,7 +11,7 @@ const StyleCard = ({ style, index, isPinned, onPin, onViewDetails, promptText })
         }}
         title={isPinned ? "Unpin style" : "Pin style"}
       >
-        {isPinned ? '★' : '☆'}
+        {isPinned ? '📌 PINNED' : '☆'}
       </button>
 
       <h3 className="card-title" style={{ marginBottom: '16px' }}>{style.name}</h3>

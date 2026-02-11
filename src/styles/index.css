@@ -346,28 +346,6 @@ input::placeholder {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Pinned Badge */
-.pinned-badge {
-  position: absolute;
-  top: 16px;
-  right: 56px;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  color: var(--accent-color);
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  font-size: 0.75rem;
-  font-weight: 700;
-  z-index: 10;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  pointer-events: none;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
 /* Pin Button */
 .pin-btn {
   position: absolute;
@@ -396,9 +374,18 @@ input::placeholder {
 }
 
 .pin-btn.active {
-  background: white;
-  color: #fdcb6e; /* Star color */
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--accent-color);
   border-color: white;
+  border-radius: var(--radius-full);
+  width: auto;
+  height: auto;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 /* Button Container */

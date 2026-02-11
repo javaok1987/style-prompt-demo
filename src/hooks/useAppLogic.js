@@ -43,16 +43,29 @@ export const useFilteredStyles = (stylesData, currentCategory, pinnedStyles, sea
       return countsMap;
   }, [stylesData.length, categoryRanges]);
 
-  const filteredStyles = useMemo(() => {
+    // Generate stable random values for each item once on mount
+    const randomOrder = useMemo(() => {
+      return stylesData.map(() => Math.random());
+    }, [currentCategory]); // Regenerate random order when category changes
+
+    const filteredStyles = useMemo(() => {
     const list = stylesData.map((style, index) => ({ ...style, originalIndex: index }));
 
-    // Sort: pinned first
+    // Sort: pinned first, then random order for others
     list.sort((a, b) => {
       const aPinned = pinnedStyles.includes(a.originalIndex);
       const bPinned = pinnedStyles.includes(b.originalIndex);
+
       if (aPinned && !bPinned) return -1;
       if (!aPinned && bPinned) return 1;
-      return a.originalIndex - b.originalIndex;
+
+      // If both are pinned, keep them sorted by original index (stable)
+      if (aPinned && bPinned) {
+        return a.originalIndex - b.originalIndex;
+      }
+
+      // If neither is pinned, usage the pre-calculated random order
+      return randomOrder[a.originalIndex] - randomOrder[b.originalIndex];
     });
 
     let result = list;

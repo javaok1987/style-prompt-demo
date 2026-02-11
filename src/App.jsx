@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Header from './components/Header';
 import CategoryFilter from './components/CategoryFilter';
 import ShortPrompts from './components/ShortPrompts';
@@ -66,24 +67,34 @@ function App() {
 
       <ShortPrompts onCopy={handleCopy} />
 
-      <div className="grid">
-        {filteredStyles.map((style) => (
-          <StyleCard
-            key={style.originalIndex}
-            style={style}
-            index={style.originalIndex}
-            isPinned={pinnedStyles.includes(style.originalIndex)}
-            onPin={togglePin}
-            promptText={buildFullPrompt(style)}
-            onCopy={handleCopy}
-            onViewDetails={(s, i) => {
-                setSelectedStyle(s);
-                setSelectedStyleIndex(i);
-            }}
-            onImageClick={(imgIndex) => setZoomedImageSrc(`images/style_${imgIndex}.png`)}
-          />
-        ))}
-      </div>
+      <motion.div layout className="grid">
+        <AnimatePresence mode='popLayout'>
+          {filteredStyles.map((style) => (
+            <motion.div
+              key={style.originalIndex}
+              layout
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.4, type: "spring", stiffness: 100, damping: 15 }}
+            >
+              <StyleCard
+                style={style}
+                index={style.originalIndex}
+                isPinned={pinnedStyles.includes(style.originalIndex)}
+                onPin={togglePin}
+                promptText={buildFullPrompt(style)}
+                onCopy={handleCopy}
+                onViewDetails={(s, i) => {
+                    setSelectedStyle(s);
+                    setSelectedStyleIndex(i);
+                }}
+                onImageClick={(imgIndex) => setZoomedImageSrc(`images/style_${imgIndex}.png`)}
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
 
       <Toast show={showToast} message={toastMessage} />
 

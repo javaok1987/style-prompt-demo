@@ -686,12 +686,64 @@ input::placeholder {
 .short-prompts-header {
   text-align: center;
   margin-bottom: 24px;
+  user-select: none;
+  transition: opacity 0.2s;
+}
+
+.short-prompts-header:hover {
+  opacity: 0.85;
+}
+
+.short-prompts-header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  display: inline-flex; /* Keep it centered but tight */
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  width: 52px;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 999px;
+  position: relative;
+  transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.toggle-switch.active {
+  background-color: var(--accent-color);
+  border-color: transparent;
+}
+
+.toggle-knob {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 3px;
+  transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1); /* Bouncy effect */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.toggle-switch.active .toggle-knob {
+  transform: translateX(24px);
+}
+
+/* Hover effect for the whole toggle area */
+.short-prompts-header-title:hover .toggle-switch {
+  transform: scale(1.05);
 }
 
 .short-prompts-title {
   font-size: 1.5rem;
   font-weight: 700;
-  margin: 0 0 8px;
+  margin: 0; /* Remove bottom margin to align with switch */
   background: linear-gradient(45deg, #f39c12, #e74c3c);
   -webkit-background-clip: text;
   background-clip: text;
@@ -708,6 +760,20 @@ input::placeholder {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
+  overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.25, 0.8, 0.25, 1),
+              opacity 0.35s ease;
+}
+
+.short-prompts-grid.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin-top: 0;
+}
+
+.short-prompts-grid.expanded {
+  max-height: 2000px;
+  opacity: 1;
 }
 
 .short-prompts-group {

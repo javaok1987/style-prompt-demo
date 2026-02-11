@@ -1,14 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shortPromptsData } from '../data/shortPromptsData';
 
 const ShortPrompts = ({ onCopy }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="short-prompts-container">
       <div className="short-prompts-header">
-        <h2 className="short-prompts-title">指令式短提示詞</h2>
+        <div className="short-prompts-header-title" onClick={() => setIsOpen(!isOpen)} style={{ cursor: 'pointer' }}>
+          <h2 className="short-prompts-title">指令式短提示詞</h2>
+          <div className={`toggle-switch ${isOpen ? 'active' : ''}`}>
+            <div className="toggle-knob"></div>
+          </div>
+        </div>
         <p className="short-prompts-subtitle">點擊按鈕即可複製對應的英文指令</p>
       </div>
-      <div className="short-prompts-grid">
+      <div className={`short-prompts-grid ${isOpen ? 'expanded' : 'collapsed'}`}>
         {shortPromptsData.map((group) => (
           <div key={group.category} className="short-prompts-group">
             <h3 className="short-prompts-group-title">

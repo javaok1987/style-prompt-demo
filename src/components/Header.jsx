@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, searchTerm, setSearchTerm }) => {
+const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, extraContent, setExtraContent, searchTerm, setSearchTerm }) => {
   return (
     <header>
       <h1>Nano Banana 繪圖風格提示詞庫</h1>
@@ -44,7 +44,7 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
         </div>
 
         <div className="color-picker-wrapper">
-          <label htmlFor="customContent" style={{ whiteSpace: 'nowrap' }}>內容</label>
+          <label htmlFor="customContent" style={{ whiteSpace: 'nowrap' }}>主題</label>
           <input
             type="text"
             id="customContent"
@@ -58,6 +58,27 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
               className="clear-btn"
               onClick={() => setCustomContent('')}
               title="Clear content"
+            >
+              ×
+            </button>
+          )}
+        </div>
+
+        <div className="color-picker-wrapper">
+          <label htmlFor="extraContent" style={{ whiteSpace: 'nowrap' }}>內容</label>
+          <input
+            type="text"
+            id="extraContent"
+            placeholder="額外提示詞（加在風格與參數中間）"
+            value={extraContent}
+            onChange={(e) => setExtraContent(e.target.value)}
+            className="transparent-input"
+          />
+          {extraContent && (
+            <button
+              className="clear-btn"
+              onClick={() => setExtraContent('')}
+              title="Clear extra content"
             >
               ×
             </button>

@@ -14,13 +14,14 @@ import { useToast } from './hooks/useToast';
 function App() {
   const [aspectRatio, setAspectRatio] = useState("Aspect ratio: 16:9 horizontal");
   const [customContent, setCustomContent] = useState("");
+  const [extraContent, setExtraContent] = useState("");
   const [currentCategory, setCurrentCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
 
   // Custom hooks
   const [pinnedStyles, setPinnedStyles] = useLocalStorage('pinnedStyles', []);
   const { filteredStyles, counts } = useFilteredStyles(stylesData, currentCategory, pinnedStyles, searchTerm);
-  const buildFullPrompt = usePromptBuilder(customContent, aspectRatio);
+  const buildFullPrompt = usePromptBuilder(customContent, aspectRatio, extraContent);
   const { show: showToast, message: toastMessage, triggerToast } = useToast();
 
   // Modal states
@@ -55,6 +56,8 @@ function App() {
         setAspectRatio={setAspectRatio}
         customContent={customContent}
         setCustomContent={setCustomContent}
+        extraContent={extraContent}
+        setExtraContent={setExtraContent}
         searchTerm={searchTerm}
         setSearchTerm={setSearchTerm}
       />

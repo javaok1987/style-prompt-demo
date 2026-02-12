@@ -95,13 +95,17 @@ export const useFilteredStyles = (stylesData, currentCategory, pinnedStyles, sea
   return { filteredStyles, counts };
 };
 
-export const usePromptBuilder = (customContent, aspectRatio) => {
+export const usePromptBuilder = (customContent, aspectRatio, extraContent) => {
   const buildFullPrompt = (style) => {
     const NEGATIVE_PROMPT = `Negative prompt: blurry text, gibberish, typo, misspelling, distorted graphs, extra limbs, low resolution, watermark, signature, cut off text, ugly, deformed, lowpoly, amateur design, cluttered, unreadable text, incorrect spelling, broken layout, pixelated, jpeg artifacts, cropped content`;
 
     let promptText = style.prompt;
     if (customContent) {
       promptText = promptText.replace(/{PROMPT}/g, customContent);
+    }
+
+    if (extraContent) {
+      promptText += "\n\nContent:\n" + extraContent;
     }
     promptText += "\n\n" + aspectRatio;
     promptText += "\n\n" + NEGATIVE_PROMPT;

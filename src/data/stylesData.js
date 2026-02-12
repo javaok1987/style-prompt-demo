@@ -8,7 +8,7 @@ export const stylesData =[
       "**數據導向、清晰層級**：資訊呈現一目了然。"
     ],
     "scenarios": ["商業提案", "投資報告", "策略分析", "董事會簡報"],
-    "prompt": "Create a McKinsey-style infographic about \"{PROMPT}\".\nStyle specifications:\n- Clean white background\n- Sophisticated blue-and-gray color palette\n- Ample whitespace\n- Strict grid alignment\n- Orthogonal arrows (90-degree angles only)\n- Bold sans-serif typography\n- Professional business aesthetic.\nLayout: Horizontal flow chart.\n"
+    "prompt": "Create a McKinsey-style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Clean white background\n- Sophisticated blue-and-gray color palette\n- Ample whitespace\n- Strict grid alignment\n- Orthogonal arrows (90-degree angles only)\n- Bold sans-serif typography\n- Professional business aesthetic.\nLayout: Horizontal flow chart."
   },
   {
     "name": "💼 企業風 Corporate Memphis",
@@ -19,7 +19,7 @@ export const stylesData =[
       "**無輪廓線、現代親和感**：柔和且具備親和力的視覺語言。"
     ],
     "scenarios": ["科技產品介紹", "SaaS 服務", "團隊協作", "新創公司"],
-    "prompt": "Create a Corporate Memphis flat design infographic about \"{PROMPT}\".\nStyle specifications:\n- Abstract human figures with tiny heads and long limbs\n- Non-realistic skin tones (blue, purple, coral)\n- Geometric shapes and solid color blocks\n- No outlines, flat design\n- Joyful and modern mood.\n"
+    "prompt": "Create a Corporate Memphis flat design infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Abstract human figures with tiny heads and long limbs\n- Non-realistic skin tones (blue, purple, coral)\n- Geometric shapes and solid color blocks\n- No outlines, flat design\n- Joyful and modern mood."
   },
   {
     "name": "💼 極簡風 Minimalist",
@@ -30,7 +30,7 @@ export const stylesData =[
       "**字體排版即設計**：依靠精緻的文字排列支撐整體視覺。"
     ],
     "scenarios": ["高端品牌", "藝術展覽", "設計提案", "精品行銷"],
-    "prompt": "Create a Minimalist infographic about \"{PROMPT}\".\nStyle specifications:\n- Generous whitespace as main element\n- Thin line icons\n- Monochromatic or two-color palette\n- Modern sans-serif typography as design element\n- Maximum simplicity and sophistication.\n"
+    "prompt": "Create a Minimalist infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Generous whitespace as main element\n- Thin line icons\n- Monochromatic or two-color palette\n- Modern sans-serif typography as design element\n- Maximum simplicity and sophistication."
   },
   {
     "name": "💼 商業簡報風 Professional Slide",
@@ -41,7 +41,7 @@ export const stylesData =[
       "**易讀的版面結構**：標準化的排版，符合商務閱讀習慣。"
     ],
     "scenarios": ["公司會議", "部門報告", "業績展示", "季度回顧"],
-    "prompt": "Create a Professional business slide infographic about \"{PROMPT}\".\nStyle specifications:\n- Clean corporate layout\n- Data visualization with bar/pie charts\n- Professional color scheme (navy, gray, accent blue)\n- Clear information\n- Clear information hierarchy\n- Executive summary format.\n"
+    "prompt": "Create a Professional business slide infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Clean corporate layout\n- Data visualization with bar/pie charts\n- Professional color scheme (navy, gray, accent blue)\n- Clear information\n- Clear information hierarchy\n- Executive summary format."
   },
   {
     "name": "💼 顧問圖表風 Consulting Framework",
@@ -52,7 +52,7 @@ export const stylesData =[
       "**決策輔助視覺化**：一眼識別各項指標的相對位置。"
     ],
     "scenarios": ["策略規劃", "競爭分析", "決策框架", "顧問提案"],
-    "prompt": "Create a Consulting framework infographic about \"{PROMPT}\".\nStyle specifications:\n- 2x2 matrix layout\n- BCG/McKinsey consulting style\n- Strategic diagram with quadrants\n- Clean labels and axis titles\n- Professional business aesthetic.\n"
+    "prompt": "Create a Consulting framework infographic about \"{PROMPT}\".\n\nStyle specifications:\n- 2x2 matrix layout\n- BCG/McKinsey consulting style\n- Strategic diagram with quadrants\n- Clean labels and axis titles\n- Professional business aesthetic."
   },
   {
     "name": "🎨 水彩風 Watercolor",
@@ -63,7 +63,7 @@ export const stylesData =[
       "**溫暖療癒氛圍**：色調與筆觸傳遞出舒緩、柔和的視覺體驗。"
     ],
     "scenarios": ["自然生態", "兒童教育", "療癒主題", "繪本風格"],
-    "prompt": "Create a Storybook Watercolor infographic about \"{PROMPT}\".\nStyle specifications:\n- Soft painterly edges\n- Gentle ink wash outlines\n- Pastel color palette\n- Cold-press watercolor paper texture visible\n- Warm and healing atmosphere\n- Nature-inspired organic shapes\n"
+    "prompt": "Create a Storybook Watercolor infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Soft painterly edges\n- Gentle ink wash outlines\n- Pastel color palette\n- Cold-press watercolor paper texture visible\n- Warm and healing atmosphere\n- Nature-inspired organic shapes."
   },
   {
     "name": "🎨 等距風 Isometric 3D",
@@ -74,7 +74,7 @@ export const stylesData =[
       "**遊戲地圖般趣味**：色彩豐富，視覺效果如同模擬經營遊戲般吸引人。"
     ],
     "scenarios": ["流程說明", "技術架構", "遊戲化內容", "系統圖解"],
-    "prompt": "Create an Isometric 3D infographic about ‘How Cloud Computing Works’.\nStyle specifications:\n- 30-degree isometric perspective\n- Stacked cubic/geometric shapes\n- Clear shadow layers for depth\n- Video game map aesthetic\n- Tech-forward modern colors\n"
+    "prompt": "Create an Isometric 3D infographic about ‘How Cloud Computing Works’.\nStyle specifications:\n- 30-degree isometric perspective\n- Stacked cubic/geometric shapes\n- Clear shadow layers for depth\n- Video game map aesthetic\n- Tech-forward modern colors."
   },
   {
     "name": "🎨 扁平風 Flat Vector",
@@ -85,7 +85,7 @@ export const stylesData =[
       "**高辨識度、適合印刷**：視覺清晰，在各種尺寸下都容易閱讀，適合印刷輸出。"
     ],
     "scenarios": ["教科書", "說明手冊", "教學素材", "印刷品"],
-    "prompt": "Create a Flat Vector illustration infographic about \"{PROMPT}\".\nStyle specifications:\n- Pure solid color fills without gradients\n- Simplified geometric shapes\n- Clear bold outlines\n- High contrast colors\n- Educational textbook style\n"
+    "prompt": "Create a Flat Vector illustration infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Pure solid color fills without gradients\n- Simplified geometric shapes\n- Clear bold outlines\n- High contrast colors\n- Educational textbook style."
   },
   {
     "name": "🎨 可愛風 Kawaii",
@@ -96,7 +96,7 @@ export const stylesData =[
       "**療癒系視覺**：整體氛圍溫暖且平易近人，給人輕鬆愉快的感覺。"
     ],
     "scenarios": ["兒童內容", "健康提醒", "可愛品牌", "情感教育"],
-    "prompt": "Create a Kawaii cute vector infographic about \"{PROMPT}\".\nStyle specifications:\n- Rounded edges and shapes\n- Pastel color palette\n- Cute expressive faces on objects\n- Simplified adorable characters\n- Warm and friendly mood\n"
+    "prompt": "Create a Kawaii cute vector infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Rounded edges and shapes\n- Pastel color palette\n- Cute expressive faces on objects\n- Simplified adorable characters\n- Warm and friendly mood."
   },
   {
     "name": "🎨 手繪風 Hand-drawn Sketch",
@@ -107,7 +107,7 @@ export const stylesData =[
       "**親切自然氛圍**：適合表達發想、創意與輕鬆的溝通場景。"
     ],
     "scenarios": ["腦力激盪", "概念說明", "創意發想", "工作坊"],
-    "prompt": "Create a Hand-drawn sketch infographic about \"{PROMPT}\".\nStyle specifications:\n- Pencil line texture\n- Organic irregular shapes\n- Rough sketch edges\n- Notebook paper style\n- Casual and approachable mood\n"
+    "prompt": "Create a Hand-drawn sketch infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Pencil line texture\n- Organic irregular shapes\n- Rough sketch edges\n- Notebook paper style\n- Casual and approachable mood."
   },
   {
     "name": "🎨 剪紙風 Paper Cutout",
@@ -118,7 +118,7 @@ export const stylesData =[
       "**手作溫度感**：呈現出像是在做美勞般的親切與趣味。"
     ],
     "scenarios": ["手作教學", "故事繪本", "創意專案", "兒童活動"],
-    "prompt": "Create a Paper Cutout style infographic about \"{PROMPT}\".\nStyle specifications:\n- Layered construction paper effect\n- Visible scissor-cut edges\n- Drop shadows between layers\n- Collage aesthetic\n- Colorful and playful.\n"
+    "prompt": "Create a Paper Cutout style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Layered construction paper effect\n- Visible scissor-cut edges\n- Drop shadows between layers\n- Collage aesthetic\n- Colorful and playful."
   },
   {
     "name": "🎮 動漫風 Anime",
@@ -129,7 +129,7 @@ export const stylesData =[
       "**鮮豔對比配色**：色彩飽和度高，對比強烈，視覺衝擊力強。"
     ],
     "scenarios": ["青少年教育", "遊戲介紹", "活動宣傳", "社群貼文"],
-    "prompt": "Create an Anime style infographic about \"{PROMPT}\".\nStyle specifications:\n- Japanese anime art style\n- Expressive characters with large eyes\n- Dynamic action lines\n- Bold black outlines\n- Vibrant contrasting colors\n- Manga panel composition elements.\n"
+    "prompt": "Create an Anime style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Japanese anime art style\n- Expressive characters with large eyes\n- Dynamic action lines\n- Bold black outlines\n- Vibrant contrasting colors\n- Manga panel composition elements."
   },
   {
     "name": "🎮 漫畫風 Comic Book",
@@ -140,7 +140,7 @@ export const stylesData =[
       "**故事感強烈**：透過分鏡與構圖，讓資訊呈現像是在看故事一樣引人入勝。"
     ],
     "scenarios": ["歷史時間軸", "故事摘要", "事件說明", "品牌故事"],
-    "prompt": "Create a Comic Book graphic novel style infographic about \"{PROMPT}\".\nStyle specifications:\n- Bold thick black outlines\n- Flat colors with halftone dot texture\n- Dynamic panel framing\n- Speech bubbles for key points\n- High contrast dramatic composition.\n"
+    "prompt": "Create a Comic Book graphic novel style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Bold thick black outlines\n- Flat colors with halftone dot texture\n- Dynamic panel framing\n- Speech bubbles for key points\n- High contrast dramatic composition."
   },
   {
     "name": "🎮 像素風 Pixel Art",
@@ -151,7 +151,7 @@ export const stylesData =[
       "**懷舊又時尚**：結合復古元素與現代設計，形成獨特的潮流感。"
     ],
     "scenarios": ["遊戲產業", "復古主題", "科技回顧", "社群吸睛"],
-    "prompt": "Create a 16-bit Pixel Art infographic about \"{PROMPT}\".\nStyle specifications:\n- Limited retro color palette\n- Dithering for shadows and gradients\n- Distinct grid-based square pixel structure\n- 1990s console game screenshot aesthetic\n- Clear readable pixel typography.\n"
+    "prompt": "Create a 16-bit Pixel Art infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Limited retro color palette\n- Dithering for shadows and gradients\n- Distinct grid-based square pixel structure\n- 1990s console game screenshot aesthetic\n- Clear readable pixel typography."
   },
   {
     "name": "🎮 黏土風 Claymation",
@@ -162,7 +162,7 @@ export const stylesData =[
       "**定格動畫風格**：呈現出類似 Stop-motion 動畫的獨特視覺效果。"
     ],
     "scenarios": ["兒童內容", "親切教學", "可愛品牌", "社群病毒傳播"],
-    "prompt": "Create a Claymation plasticine style infographic about \"{PROMPT}\".\nStyle specifications:\n- 3D clay texture\n- Visible fingerprints on surface\n- Soft plasticine lighting\n- Stop-motion animation aesthetic\n- Warm and tactile feel.\n"
+    "prompt": "Create a Claymation plasticine style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- 3D clay texture\n- Visible fingerprints on surface\n- Soft plasticine lighting\n- Stop-motion animation aesthetic\n- Warm and tactile feel."
   },
   {
     "name": "🎮 摺紙風 Origami",
@@ -173,7 +173,7 @@ export const stylesData =[
       "**數學美感**：展現對稱、角度與比例的和諧之美。"
     ],
     "scenarios": ["數學幾何", "結構概念", "創意設計", "日本文化"],
-    "prompt": "Create an Origami paper folding style infographic about \"{PROMPT}\".\nStyle specifications:\n- Paper folding geometric shapes\n- Sharp clean edges\n- Structural concept visualization\n- Minimal color palette\n- Mathematical elegance.\n"
+    "prompt": "Create an Origami paper folding style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Paper folding geometric shapes\n- Sharp clean edges\n- Structural concept visualization\n- Minimal color palette\n- Mathematical elegance."
   },
   {
     "name": "🎮 塗鴉風 Graffiti",
@@ -184,7 +184,7 @@ export const stylesData =[
       "**叛逆潮流感**：不受傳統規範束縛，風格強烈且具獨特性。"
     ],
     "scenarios": ["年輕族群", "潮流品牌", "音樂活動", "街頭文化"],
-    "prompt": "Create a Graffiti street art style infographic about \"{PROMPT}\".\nStyle specifications:\n- Spray paint texture\n- Bold contrasting colors\n- Urban street art aesthetic\n- Energetic and rebellious mood\n- Dynamic typography.\n"
+    "prompt": "Create a Graffiti street art style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Spray paint texture\n- Bold contrasting colors\n- Urban street art aesthetic\n- Energetic and rebellious mood\n- Dynamic typography."
   },
   {
     "name": "📜 復古海報風 Vintage Poster / WPA",
@@ -195,7 +195,7 @@ export const stylesData =[
       "**復古大膽字體**：使用具有時代感的粗體無襯線字體，醒目且經典。"
     ],
     "scenarios": ["旅遊推廣", "環保議題", "歷史主題", "文青品牌"],
-    "prompt": "Create a WPA National Park vintage poster style infographic about \"{PROMPT}\".\nStyle specifications:\n- Flat vector illustration\n- Limited color palette (burnt orange, sage green, navy)\n- Screen print texture\n- Bold vintage typography\n- Hazy atmospheric perspective\n- Heroic and timeless mood.\n"
+    "prompt": "Create a WPA National Park vintage poster style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Flat vector illustration\n- Limited color palette (burnt orange, sage green, navy)\n- Screen print texture\n- Bold vintage typography\n- Hazy atmospheric perspective\n- Heroic and timeless mood."
   },
   {
     "name": "📜 黑板風 Chalkboard",
@@ -206,7 +206,7 @@ export const stylesData =[
       "**教室溫暖氛圍**：喚起校園記憶，適合教學與分享場景。"
     ],
     "scenarios": ["教育訓練", "食譜分享", "咖啡廳菜單", "手作教學"],
-    "prompt": "Create a Chalkboard art infographic about \"{PROMPT}\".\nStyle specifications:\n- Deep green or black chalkboard background\n- White chalk line drawings\n- Hand-drawn typography style\n- Classic school classroom feel\n- Slight chalk smudge texture.\n"
+    "prompt": "Create a Chalkboard art infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Deep green or black chalkboard background\n- White chalk line drawings\n- Hand-drawn typography style\n- Classic school classroom feel\n- Slight chalk smudge texture."
   },
   {
     "name": "📜 底片風 Analog Film Grain",
@@ -217,7 +217,7 @@ export const stylesData =[
       "**日期戳印標記**：角落帶有經典的橘色日期數字，復古味十足。"
     ],
     "scenarios": ["懷舊主題", "攝影教學", "生活紀錄", "文青風格"],
-    "prompt": "Create an Analog Film photography style infographic about \"{PROMPT}\".\nStyle specifications:\n- 35mm film grain texture\n- Slight light leak effect\n- Vintage date stamp in corner\n- Muted Kodak Portra color palette\n- Nostalgic and authentic mood\n- Soft focus aesthetic.\n"
+    "prompt": "Create an Analog Film photography style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- 35mm film grain texture\n- Slight light leak effect\n- Vintage date stamp in corner\n- Muted Kodak Portra color palette\n- Nostalgic and authentic mood\n- Soft focus aesthetic."
   },
   {
     "name": "📜 普普風 Pop Art",
@@ -228,7 +228,7 @@ export const stylesData =[
       "**安迪沃荷風格**：重複出現的圖像與獨特的色彩處理，具備強烈的藝術標識。"
     ],
     "scenarios": ["時尚主題", "藝術展覽", "吸睛海報", "潮流品牌"],
-    "prompt": "Create a Pop Art infographic about \"{PROMPT}\".\nStyle specifications:\n- Warhol/Lichtenstein style\n- High contrast bold colors\n- Halftone dot patterns\n- Energetic and attention-grabbing\n- Comic-inspired aesthetic.\n"
+    "prompt": "Create a Pop Art infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Warhol/Lichtenstein style\n- High contrast bold colors\n- Halftone dot patterns\n- Energetic and attention-grabbing\n- Comic-inspired aesthetic."
   },
   {
     "name": "📜 達文西風 Da Vinci Notebook",
@@ -239,7 +239,7 @@ export const stylesData =[
       "**手稿筆記風格**：穿插手寫註記與科學符號，展現思考與探索的氛圍。"
     ],
     "scenarios": ["科學發明", "人體解剖", "歷史主題", "藝術教育"],
-    "prompt": "Create a Da Vinci notebook Renaissance style infographic about \"{PROMPT}\".\nStyle specifications:\n- Renaissance sketch style\n- Sepia tones on parchment texture\n- Anatomical drawing precision\n- Handwritten notes aesthetic\n- Scientific illustration feel\n"
+    "prompt": "Create a Da Vinci notebook Renaissance style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Renaissance sketch style\n- Sepia tones on parchment texture\n- Anatomical drawing precision\n- Handwritten notes aesthetic\n- Scientific illustration feel."
   },
   {
     "name": "🔬 藍圖風 Blueprint",
@@ -250,7 +250,7 @@ export const stylesData =[
       "**網格底紋**：背景帶有細微的方格網點，強化精密工程的氛圍。"
     ],
     "scenarios": ["產品結構", "技術說明", "工程項目", "建築設計"],
-    "prompt": "Create a Technical Blueprint style infographic about \"{PROMPT}\".\nStyle specifications:\n- Blue background with white line drawings\n- Architectural grid pattern\n- Dimension annotations and callouts\n- Engineering precision aesthetic\n- Technical drawing style\n"
+    "prompt": "Create a Technical Blueprint style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Blue background with white line drawings\n- Architectural grid pattern\n- Dimension annotations and callouts\n- Engineering precision aesthetic\n- Technical drawing style."
   },
   {
     "name": "🔬 剖面圖風 Cross-section",
@@ -261,7 +261,7 @@ export const stylesData =[
       "**技術插畫風格**：採用乾淨、專業的技術插圖表現手法。"
     ],
     "scenarios": ["機械原理", "建築結構", "產品內部", "科學教育"],
-    "prompt": "Create a Cross-section diagram infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Cutaway view showing internal structure\n- Labeled parts with pointer lines\n- Clean white background\n- Technical illustration style\n- Accurate mechanical positioning\n\n"
+    "prompt": "Create a Cross-section diagram infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Cutaway view showing internal structure\n- Labeled parts with pointer lines\n- Clean white background\n- Technical illustration style\n- Accurate mechanical positioning\n."
   },
   {
     "name": "🔬 線框圖風 Wireframe UI",
@@ -272,7 +272,7 @@ export const stylesData =[
       "**數位產品感**：具備現代軟體開發的藍圖美感，展現專業的產品開發氛圍。"
     ],
     "scenarios": ["UX 設計", "流程邏輯", "數位產品", "程式開發"],
-    "prompt": "Create a UI Wireframe style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- App blueprint wireframe aesthetic\n- Gray-scale color scheme\n- Logic flow visualization\n- Web/mobile design style\n- Clean structured layout\n\n"
+    "prompt": "Create a UI Wireframe style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- App blueprint wireframe aesthetic\n- Gray-scale color scheme\n- Logic flow visualization\n- Web/mobile design style\n- Clean structured layout\n."
   },
   {
     "name": "🔬 地鐵圖風 Subway Map",
@@ -283,7 +283,7 @@ export const stylesData =[
       "**旅程導覽感**：強調「從起點到終點」的探索感，營造明確的導引與目標。"
     ],
     "scenarios": ["時間軸", "學習路徑", "概念連結", "旅程地圖"],
-    "prompt": "Create a Subway transit map style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Transit diagram aesthetic\n- Connected nodes as stations\n- Color-coded different lines/paths\n- Journey visualization\n- Clean geometric routes.\n\n"
+    "prompt": "Create a Subway transit map style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Transit diagram aesthetic\n- Connected nodes as stations\n- Color-coded different lines/paths\n- Journey visualization\n- Clean geometric routes.\n."
   },
   {
     "name": "✨ 賽博龐克風 Cyberpunk / Neon",
@@ -294,7 +294,7 @@ export const stylesData =[
       "**科幻未來感**：營造濃厚的科技與未來氛圍，展現 Cyber-noir 的美學。"
     ],
     "scenarios": ["科技趨勢", "未來主題", "電競遊戲", "吸睛社群"],
-    "prompt": "Create a Cyberpunk neon style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Dark background\n- Bright neon blue and pink accents\n- Glowing light effects\n- Futuristic cyber-noir aesthetic\n- Tech and sci-fi mood.\n\n"
+    "prompt": "Create a Cyberpunk neon style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Dark background\n- Bright neon blue and pink accents\n- Glowing light effects\n- Futuristic cyber-noir aesthetic\n- Tech and sci-fi mood.\n."
   },
   {
     "name": "✨ 蒸汽龐克風 Steampunk",
@@ -305,7 +305,7 @@ export const stylesData =[
       "**復古未來美學**：展現一種「過去人眼中的未來」想像，具備獨特的工藝氣息。"
     ],
     "scenarios": ["創意設計", "歷史科技", "獨特主題", "品牌差異化"],
-    "prompt": "Create a Steampunk style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Mechanical gears and cogs\n- Brass and copper metallic textures\n- Victorian era aesthetic\n- Retro-futuristic mood\n- Intricate mechanical details.\n\n"
+    "prompt": "Create a Steampunk style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Mechanical gears and cogs\n- Brass and copper metallic textures\n- Victorian era aesthetic\n- Retro-futuristic mood\n- Intricate mechanical details.\n."
   },
   {
     "name": "✨ 紙雕風 Paper Quilling",
@@ -316,7 +316,7 @@ export const stylesData =[
       "**手工藝術質感**：具備強烈的手工藝氣息，呈現出獨特的觸感與藝術氛圍。"
     ],
     "scenarios": ["藝術主題", "精緻設計", "節慶賀卡", "獨特質感"],
-    "prompt": "Create a Paper Quilling artwork style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Intricate paper strip swirl patterns\n- Depth and shadows between layers\n- Elaborate curving lines\n- Colorful paper craft aesthetic\n- Artistic and delicate mood\n\n"
+    "prompt": "Create a Paper Quilling artwork style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Intricate paper strip swirl patterns\n- Depth and shadows between layers\n- Elaborate curving lines\n- Colorful paper craft aesthetic\n- Artistic and delicate mood\n."
   },
   {
     "name": "✨ 平面攝影風 Flat Lay Photography",
@@ -327,7 +327,7 @@ export const stylesData =[
       "**DIY 生活感**：營造出一種居家、手作且具備個人風格的生活氛圍。"
     ],
     "scenarios": ["食譜教學", "產品展示", "生活風格", "整理收納"],
-    "prompt": "Create a Flat Lay Photography style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Top-down bird's eye view\n- Arranged real objects\n- Clean light background\n- DIY aesthetic\n- Organized and visually pleasing layout\n\n"
+    "prompt": "Create a Flat Lay Photography style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Top-down bird's eye view\n- Arranged real objects\n- Clean light background\n- DIY aesthetic\n- Organized and visually pleasing layout\n."
   },
   {
     "name": "✨ 玻璃擬態風 Glassmorphism",
@@ -338,7 +338,7 @@ export const stylesData =[
       "**現代 UI 設計**：展現極簡且前衛的數位介面美學，視覺感受高級且清新。"
     ],
     "scenarios": ["科技介面", "現代設計", "App 展示", "高級質感"],
-    "prompt": "Create a Glassmorphism style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Frosted glass effect\n- Semi-transparent blur background\n- Soft shadows and highlights\n- Modern UI aesthetic\n- Clean and premium feel.\n\n"
+    "prompt": "Create a Glassmorphism style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Frosted glass effect\n- Semi-transparent blur background\n- Soft shadows and highlights\n- Modern UI aesthetic\n- Clean and premium feel.\n."
   },
   {
     "name": "✨ 等距小屋風 Isometric Diorama",
@@ -349,7 +349,7 @@ export const stylesData =[
       "**玩具屋般趣味**：營造出一種如同玩具屋（Diorama）般的趣味感與收藏價值。"
     ],
     "scenarios": ["場景說明", "空間規劃", "概念展示", "趣味設計"],
-    "prompt": "Create a 3D Isometric Diorama style infographic about \"{PROMPT}\".\n\nStyle specifications:\n- Miniature platform scene\n- Cute polished 3D style\n- Soft pastel colors\n- Tiny detailed models\n- Playful and charming aesthetic.\n\n"
+    "prompt": "Create a 3D Isometric Diorama style infographic about \"{PROMPT}\".\n\n\nStyle specifications:\n- Miniature platform scene\n- Cute polished 3D style\n- Soft pastel colors\n- Tiny detailed models\n- Playful and charming aesthetic.\n."
   }
 ]
 ;

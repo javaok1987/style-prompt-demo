@@ -1,9 +1,57 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, extraContent, setExtraContent, searchTerm, setSearchTerm }) => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      setIsCollapsed(false);
+      return;
+    }
+
+    let lastScrollY = window.scrollY;
+    const THRESHOLD = 10;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      const diff = currentScrollY - lastScrollY;
+
+      if (diff > THRESHOLD) {
+        setIsCollapsed(true);
+      } else if (diff < -THRESHOLD) {
+        setIsCollapsed(false);
+      }
+
+      lastScrollY = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isMobile]);
+
+  const handleHeaderClick = useCallback(() => {
+    if (isMobile && isCollapsed) {
+      setIsCollapsed(false);
+    }
+  }, [isMobile, isCollapsed]);
+
   return (
-    <header>
-      <h1>Nano Banana 繪圖風格提示詞庫</h1>
+    <header
+      className={isMobile && isCollapsed ? 'header-collapsed' : ''}
+      onClick={handleHeaderClick}
+    >
+      <h1>
+        Nano Banana 繪圖風格提示詞庫
+        {isMobile && isCollapsed && <span className="expand-hint">▼ 點擊展開</span>}
+      </h1>
 
       <div className="controls">
         <div className="color-picker-wrapper select-wrapper">

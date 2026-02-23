@@ -1,32 +1,33 @@
-/* Arc Browser / Glassmorphism Style */
+/* Cottagecore Style */
 @import url('https://fonts.googleapis.com/css2?family=Internal:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   /* Core Colors */
-  --glass-surface: rgba(255, 255, 255, 0.35);
-  --glass-surface-hover: rgba(255, 255, 255, 0.55);
-  --glass-border: rgba(255, 255, 255, 0.5);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  --glass-surface: rgba(255, 252, 248, 0.85);
+  --glass-surface-hover: rgba(255, 252, 248, 0.95);
+  --glass-border: rgba(230, 226, 214, 0.8);
+  --glass-shadow: 0 8px 32px 0 rgba(74, 63, 53, 0.08);
 
-  --text-primary: #2D3436;
-  --text-secondary: #636E72;
+  --text-primary: #4a3f35;
+  --text-secondary: #8a7f76;
 
-  --primary-gradient: linear-gradient(135deg, #fab1a0 0%, #74b9ff 100%);
-  --accent-color: #0984e3;
+  --primary-gradient: linear-gradient(135deg, #d4b5b0 0%, #a3b899 100%);
+  --accent-color: #a3b899;
+  --accent-hover: #8fa685;
 
   /* Typography */
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-main: 'Lora', Georgia, serif;
+  --font-heading: 'Playfair Display', Georgia, serif;
 
   /* Shapes */
-  --radius-lg: 24px;
-  --radius-md: 16px;
-  --radius-sm: 12px;
+  --radius-lg: 32px;
+  --radius-md: 20px;
+  --radius-sm: 16px;
   --radius-full: 9999px;
 
   font-family: var(--font-main);
   color: var(--text-primary);
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 body {
@@ -36,10 +37,9 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* Soft Rose to Indigo Gradient */
-  background: linear-gradient(120deg, #fbc2eb 0%, #a6c1ee 100%);
+  /* Soft double-cream background */
+  background: linear-gradient(180deg, #faf8f5 0%, #f0eee4 100%);
   background-attachment: fixed;
-  background-size: cover;
 }
 
 /* Header */
@@ -71,10 +71,11 @@ header {
 }
 
 h1 {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0;
-  background: linear-gradient(45deg, #2d3436, #636e72);
+  background: linear-gradient(45deg, #4a3f35, #8a7f76);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -224,7 +225,7 @@ input::placeholder {
 .filter-btn.active {
   background: rgba(255, 255, 255, 0.85);
   color: var(--accent-color);
-  box-shadow: 0 4px 12px rgba(9, 132, 227, 0.15);
+  box-shadow: 0 4px 12px rgba(163, 184, 153, 0.25);
   border-color: rgba(255, 255, 255, 0.8);
 }
 
@@ -393,7 +394,7 @@ input::placeholder {
 
 /* Copy Button */
 .btn-copy {
-  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  background: var(--primary-gradient);
   color: white;
   border: none;
   border-radius: var(--radius-full);
@@ -405,12 +406,12 @@ input::placeholder {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-shadow: 0 4px 15px rgba(9, 132, 227, 0.3);
+  box-shadow: 0 4px 15px rgba(163, 184, 153, 0.3);
 }
 
 .btn-copy:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(9, 132, 227, 0.4);
+  box-shadow: 0 8px 20px rgba(163, 184, 153, 0.4);
 }
 
 .btn-copy:active {
@@ -619,6 +620,7 @@ input::placeholder {
 }
 
 .details-modal-title {
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 800;
   margin: 0;
@@ -649,8 +651,8 @@ input::placeholder {
 }
 
 .scenario-tag {
-  background-color: #e3f2fd;
-  color: #1976d2;
+  background-color: var(--glass-border);
+  color: var(--text-primary);
   padding: 8px 16px;
   border-radius: var(--radius-full);
   font-size: 0.85rem;
@@ -724,10 +726,11 @@ input::placeholder {
 }
 
 .short-prompts-title {
+  font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 700;
   margin: 0; /* Remove bottom margin to align with switch */
-  background: linear-gradient(45deg, #f39c12, #e74c3c);
+  background: linear-gradient(45deg, #a3b899, #d4b5b0);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

@@ -870,3 +870,106 @@ input::placeholder {
   }
 }
 
+/* Elden Ring Dark Mode Aesthetic */
+body.dark-mode {
+  background: linear-gradient(135deg, #0a0a09 0%, #171512 50%, #050403 100%);
+}
+
+.dark-mode, body.dark-mode {
+  --glass-surface: rgba(15, 12, 10, 0.85);
+  --glass-surface-hover: rgba(26, 22, 18, 0.95);
+  --glass-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.8);
+
+  --text-primary: #dfd5c5;
+  --text-secondary: #8c816f;
+
+  --primary-gradient: linear-gradient(135deg, #Cfb67e 0%, #7d6b46 100%);
+  --accent-color: #Cfb67e;
+  --accent-hover: #e3d2ab;
+
+  /* Typography */
+  --font-main: 'Cinzel', 'Playfair Display', Georgia, serif;
+  --font-heading: 'Cinzel', 'Playfair Display', Georgia, serif;
+}
+
+body.dark-mode .card,
+body.dark-mode header,
+body.dark-mode .short-prompts-group,
+body.dark-mode .color-picker-wrapper,
+body.dark-mode .filter-btn {
+  border: 1px solid rgba(207, 182, 126, 0.2);
+}
+
+body.dark-mode .card:hover,
+body.dark-mode .short-prompts-group:hover,
+body.dark-mode .filter-btn:hover {
+  border: 1px solid rgba(207, 182, 126, 0.5);
+  box-shadow: 0 0 20px rgba(207, 182, 126, 0.15);
+}
+
+body.dark-mode .card-prompt,
+body.dark-mode .card-features {
+  background: rgba(10, 8, 6, 0.6);
+  border: 1px dotted rgba(207, 182, 126, 0.3);
+}
+
+body.dark-mode .details-modal-close {
+  background: rgba(207, 182, 126, 0.1);
+  color: var(--text-primary);
+}
+
+body.dark-mode .details-modal-close:hover {
+  background: rgba(207, 182, 126, 0.25);
+  color: var(--accent-hover);
+}
+
+body.dark-mode .details-modal-content {
+  background: #110e0b;
+  border: 1px solid rgba(207, 182, 126, 0.3);
+}
+
+body.dark-mode .modal,
+body.dark-mode .details-modal {
+  background-color: rgba(5, 4, 3, 0.8);
+}
+
+body.dark-mode h1 {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 2px 10px rgba(207, 182, 126, 0.2);
+}
+
+body.dark-mode .color-picker-wrapper,
+body.dark-mode .short-prompts-group-title,
+body.dark-mode .card-title {
+  color: var(--text-primary);
+}
+
+body.dark-mode .color-picker-wrapper {
+  background: rgba(30, 28, 24, 0.6); /* Slightly noticeable background */
+  border: 1px solid rgba(207, 182, 126, 0.2); /* Muted gold border */
+}
+
+body.dark-mode input::placeholder {
+  color: rgba(140, 129, 111, 0.8); /* Muted eldritch gold placeholder */
+}
+
+body.dark-mode .clear-btn {
+  color: var(--text-secondary);
+}
+
+body.dark-mode .clear-btn:hover {
+  color: var(--accent-hover);
+  background-color: rgba(207, 182, 126, 0.1);
+}
+
+body.dark-mode .short-prompts-title {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+

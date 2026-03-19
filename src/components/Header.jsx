@@ -3,6 +3,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, extraContent, setExtraContent, searchTerm, setSearchTerm }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Initial load
+    const isDark = document.body.classList.contains('dark-mode');
+    setIsDarkMode(isDark);
+  }, []);
+
+  const toggleDarkMode = (e) => {
+    e.stopPropagation(); // Prevent header click on mobile
+    document.body.classList.toggle('dark-mode');
+    setIsDarkMode(!isDarkMode);
+  };
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 768);
@@ -54,6 +67,14 @@ const Header = ({ aspectRatio, setAspectRatio, customContent, setCustomContent, 
       </h1>
 
       <div className="controls">
+        <button
+          className="color-picker-wrapper dark-mode-toggle"
+          onClick={toggleDarkMode}
+          title="Toggle Dark Mode"
+          style={{ background: isDarkMode ? 'rgba(207, 182, 126, 0.15)' : '', borderColor: isDarkMode ? 'rgba(207, 182, 126, 0.4)' : '' }}
+        >
+          {isDarkMode ? '🌙 黯夜' : '☀️ 晨曦'}
+        </button>
         <div className="color-picker-wrapper select-wrapper">
           <label htmlFor="aspectRatio" style={{ whiteSpace: 'nowrap' }}>圖片比例</label>
           <select

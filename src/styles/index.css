@@ -1,27 +1,26 @@
-/* Cottagecore Style */
-@import url('https://fonts.googleapis.com/css2?family=Internal:wght@400;500;600;700&display=swap');
+/* Arc Browser Glassmorphism Style */
 
 :root {
   /* Core Colors */
-  --glass-surface: rgba(255, 252, 248, 0.85);
-  --glass-surface-hover: rgba(255, 252, 248, 0.95);
-  --glass-border: rgba(230, 226, 214, 0.8);
-  --glass-shadow: 0 8px 32px 0 rgba(74, 63, 53, 0.08);
+  --glass-surface: rgba(255, 255, 255, 0.35);
+  --glass-surface-hover: rgba(255, 255, 255, 0.55);
+  --glass-border: transparent; /* Borderless containers */
+  --glass-shadow: 0 12px 40px 0 rgba(31, 31, 40, 0.08);
 
-  --text-primary: #4a3f35;
-  --text-secondary: #8a7f76;
+  --text-primary: #1c1c1e;
+  --text-secondary: #636366;
 
-  --primary-gradient: linear-gradient(135deg, #d4b5b0 0%, #a3b899 100%);
-  --accent-color: #a3b899;
-  --accent-hover: #8fa685;
+  --primary-gradient: linear-gradient(135deg, #FFB9CA 0%, #A5B4FC 100%);
+  --accent-color: #818cf8;
+  --accent-hover: #6366f1;
 
   /* Typography */
-  --font-main: 'Lora', Georgia, serif;
-  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   /* Shapes */
   --radius-lg: 32px;
-  --radius-md: 20px;
+  --radius-md: 24px;
   --radius-sm: 16px;
   --radius-full: 9999px;
 
@@ -37,8 +36,8 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  /* Soft double-cream background */
-  background: linear-gradient(180deg, #faf8f5 0%, #f0eee4 100%);
+  /* Translucent rose-to-indigo gradient background */
+  background: linear-gradient(135deg, #fce3ec 0%, #e8e6fb 50%, #d8e2fd 100%);
   background-attachment: fixed;
 }
 
@@ -58,9 +57,9 @@ header {
 
   /* Glass Effect */
   background: var(--glass-surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: none;
   border-radius: var(--radius-lg);
   box-shadow: var(--glass-shadow);
 
@@ -97,7 +96,7 @@ h1 {
   background: rgba(255, 255, 255, 0.4);
   padding: 10px 20px;
   border-radius: var(--radius-full);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: none;
   color: var(--text-secondary);
   font-size: 0.95rem;
   font-weight: 600;
@@ -211,7 +210,7 @@ input::placeholder {
 
   /* Glass Buttons */
   background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
   color: var(--text-secondary);
   backdrop-filter: blur(10px);
 }
@@ -257,9 +256,9 @@ input::placeholder {
   gap: 20px;
   position: relative;
   overflow: hidden;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
 }
@@ -348,7 +347,7 @@ input::placeholder {
   word-break: break-all;
   flex-grow: 1;
   line-height: 1.6;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: none;
 }
 
 /* Pin Button */
@@ -357,7 +356,7 @@ input::placeholder {
   top: 12px;
   right: 12px;
   background: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: none;
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -484,8 +483,8 @@ input::placeholder {
   height: 100%;
   overflow: auto;
   background-color: rgba(225, 230, 235, 0.6); /* Very light blurred overlay */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -764,9 +763,9 @@ input::placeholder {
 
 .short-prompts-group {
   background: var(--glass-surface);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: none;
   border-radius: var(--radius-lg);
   padding: 20px;
   transition: all 0.3s ease;
@@ -806,7 +805,7 @@ input::placeholder {
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   text-align: left;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: none;
 }
 
 .short-prompt-btn:hover {
